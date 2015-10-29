@@ -2,12 +2,12 @@
 	<section class="container">
 		
 	<?php
-		include 'conexion.php';
 		$query = "SELECT * FROM productos";
 		$cmd = $db->query($query);
 		
 		while ($i = $cmd->fetch_assoc()) {
 		?>
+			<!-- <div class="col-md-2 col-lg-2 col-sm-3 col-xs-12 producto-container"> -->
 			<div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 producto-container">
 				<div class="producto">
 					<span class='producto-precio'>$<?php echo $i['precio'];?></span>

@@ -1,5 +1,8 @@
 <?php 
 	$base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?');
+	define('__ROOT__', dirname(dirname(__FILE__))); 
+	require_once(__ROOT__.'/conexion.php'); 
+	include "funciones/consultas.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,10 +22,38 @@
 	<header>
 		<div class="container-fluid">
 			<div class="logo">
-				<a href="<?=$base_url?>">
+				<a class="col-md-4 col-lg-4 col-sm-12 col-xs-12" href="<?=$base_url?>">
 					<img src="<?=$base_url?>/imagenes/logo.png" alt="">
-				</a>
-			</div>
+				</a><!--
+			 --><div id="container-buscar" class="input-group col-md-8 col-lg-8 col-sm-12 col-xs-12">
+					<div class="input-group-btn">
+						<select name="" id="" class="form-control">
+							<option value="%" default>Todo</option>
+							<?php 
+								$categorias = getCategorias();
+								foreach ($categorias as $key => $value) {
+							?>
+							<option value="<?=$value['idcategoria']?>"><?=$value['nombre']?></option>
+							<?php		
+								}
+							?>
+							<!-- 
+							
+							<option value="" default>Reposteria</option>
+							<option value="" default>Decoración</option>
+							<option value="" default>Cubertería</option>
+							<option value="" default>Piñatas</option>
+							<option value="" default>Animadores</option> -->
+						</select>
+					</div><!-- /btn-group -->
+					<input type="text" class="form-control" placeholder="Buscar" id="txtbuscar" />
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">
+							<i class="fa fa-search"></i>
+						</button>
+					</span>
+				</div><!--
+	     --></div>
 		</div>
 		<nav class="navbar navbar-inverse">
   			<div class="container-fluid">
@@ -42,10 +73,14 @@
         				<li class="dropdown">
           					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Productos <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="#">Reposteria</a></li>
-									<li><a href="#">Decoración</a></li>
-									<li><a href="#">Cubertería</a></li>
-									<li><a href="#">Piñatas</a></li>
+								<?php 
+								$categorias = getCategorias();
+									foreach ($categorias as $key => $value) {
+								?>
+									<li><a id='cat_<?=$value['idcategoria']?>' href="#"><?=$value['nombre']?></a></li>
+								<?php		
+									}
+								?>
 								</ul>
         					</li>
       				</ul>
