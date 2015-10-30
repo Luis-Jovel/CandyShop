@@ -1,8 +1,11 @@
 <?php 
-	$base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?');
-	define('__ROOT__', dirname(dirname(__FILE__))); 
+	session_start();
+	define('__ROOT__', dirname(dirname(__FILE__)));
+	require_once(__ROOT__.'/variables.php');
 	require_once(__ROOT__.'/conexion.php'); 
 	include "funciones/consultas.php";
+	//dejar al usuario "quemado"
+	//$_SESSION["usuario"] = array("idusuario"=>1, "Nombre"=>"Moises");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -37,13 +40,6 @@
 							<?php		
 								}
 							?>
-							<!-- 
-							
-							<option value="" default>Reposteria</option>
-							<option value="" default>Decoración</option>
-							<option value="" default>Cubertería</option>
-							<option value="" default>Piñatas</option>
-							<option value="" default>Animadores</option> -->
 						</select>
 					</div><!-- /btn-group -->
 					<input type="text" class="form-control" placeholder="Buscar" id="txtbuscar" />
@@ -75,9 +71,9 @@
 								<ul class="dropdown-menu" role="menu">
 								<?php 
 								$categorias = getCategorias();
-									foreach ($categorias as $key => $value) {
+									foreach ($categorias as $key => $categoria) {
 								?>
-									<li><a id='cat_<?=$value['idcategoria']?>' href="#"><?=$value['nombre']?></a></li>
+									<li><a id='cat_<?=$categoria['idcategoria']?>' href="<?=$base_url?>?idcategoria=<?=$categoria['idcategoria']?>"><?=$categoria['nombre']?></a></li>
 								<?php		
 									}
 								?>
@@ -85,26 +81,31 @@
         					</li>
       				</ul>
 					<ul class="nav navbar-nav navbar-right">
+						<?php
+							$usuario_label = "Invitado";
+							$login_menu = array("enlace"=>"user_login", "label" =>"Iniciar Sesión");
+							if (isset($_SESSION["usuario"])) {
+								$usuario_label = $_SESSION["usuario"]["Nombre"]." ".$_SESSION["usuario"]["Apellido"];
+								$login_menu["enlace"] = "logout";
+								$login_menu["label"] = "Cerrar Sesión";
+							}
+						?>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+								Bienvenido <?=$usuario_label?>
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="<?=$base_url?>/<?=$login_menu['enlace']?>.php"><?=$login_menu['label']?></a></li>
+							</ul>
+	    				</li>
 						<li>
 						    <a class='btn-carrito' href="./carritodecompras.php">
 								<img src="./imagenes/carrito.png">
 						    </a>
 						</li>
 					</ul>
-					<!-- <form class="navbar-form navbar-right" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Buscar">
-						</div>
-						<button type="submit" class="btn btn-default">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</form> -->
     			</div>
   			</div>
 		</nav>
-		<!-- <div class="titulo">
-			<a href="" title="ver carrito de compras">
-				<img src="./imagenes/carrito.png">
-			</a>
-		</div>		 -->
 	</header>

@@ -1,5 +1,6 @@
+<?php include "include/header.php" ?>
 <?php
-	session_start();
+	//session_start(); //ya se hace en el header
 	include 'conexion.php';
 
 	if ((isset($_SESSION['carrito'])) && (isset($_GET['id'])))
@@ -92,7 +93,6 @@
 			</a>
 		</div>
 	</header> -->
-<?php include "include/header.php" ?>
 <script src="<?=$base_url?>/js/scripts.js"></script>
 	<section class="container">
 		<?php
@@ -111,7 +111,7 @@
 							<span><?php echo $datos[$i]['Nombre']; ?></span><br>
 							<span>Precio: $<?php echo $datos[$i]['Precio']; ?></span><br>
 							<span>Cantidad: 
-								<input type="text" value="<?php echo $datos[$i]['Cantidad']; ?>"
+								<input type="number" value="<?php echo $datos[$i]['Cantidad']; ?>"
 								data-precio="<?php echo $datos[$i]['Precio']; ?>"
 								data-id="<?php echo $datos[$i]['Id']; ?>"
 								class="cantidad">
@@ -156,7 +156,14 @@
 					}
 				?>
 
-				<center><input type="submit" value="Comprar" class="aceptar" style="width:200px"></center>
+				<center> <!-- ya no se usa la etiqueta center -->
+					<?php if (isset($_SESSION["usuario"])){ ?>
+						<input type="submit" value="Comprar" class="aceptar btn btn-primary" style="width:200px">	
+					<?php } else { ?>
+						<a href="<?=$base_url?>/user_login.php" class="btn btn-warning">Iniciar Sesión Para comprar!</a>
+					<?php } ?>
+					
+				</center>
 			</form>
 
 		<?php
