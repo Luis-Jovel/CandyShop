@@ -1,8 +1,5 @@
 <?php include "include/header.php" ?>
 <?php
-	//session_start(); //ya se hace en el header
-	include 'conexion.php';
-
 	if ((isset($_SESSION['carrito'])) && (isset($_GET['id'])))
 	{
 		$arreglo = $_SESSION['carrito'];
@@ -75,24 +72,6 @@
 		}
 	}
 ?>
-
-<!-- <!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="utf-8"/>
-	<title>Carrito de Compras</title>
-	<link rel="stylesheet" type="text/css" href="./css/estilos.css">
-	<script type="text/javascript"  src="./js/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript"  src="./js/scripts.js"></script>	
-</head>
-<body>
-	<header>
-		<div class="titulo">Carrito de Compras
-			<a href="./carritodecompras.php" title="ver carrito de compras">
-				<img src="./imagenes/carrito.png">
-			</a>
-		</div>
-	</header> -->
 <script src="<?=$base_url?>/js/scripts.js"></script>
 	<section class="container">
 		<?php
@@ -107,8 +86,11 @@
 				<div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 producto-container">
 					<div class="producto">
 						<center>
-							<img src="./productos/<?php echo $datos[$i]	['Imagen'];?>"><br>
-							<span><?php echo $datos[$i]['Nombre']; ?></span><br>
+							<span class="producto-precio"><?=$datos[$i]['Precio']?></span>
+							<a href="./detalles.php?id=<?=$datos[$i]['Id']?>">
+								<img class="fixed-height" src="./productos/<?php echo $datos[$i]	['Imagen'];?>"><br>
+								<h2 class='producto-nombre'><?php echo $datos[$i]['Nombre']; ?></h2>
+							</a>
 							<span>Precio: $<?php echo $datos[$i]['Precio']; ?></span><br>
 							<span>Cantidad: 
 								<input type="number" value="<?php echo $datos[$i]['Cantidad']; ?>"
@@ -158,7 +140,7 @@
 
 				<center> <!-- ya no se usa la etiqueta center -->
 					<?php if (isset($_SESSION["usuario"])){ ?>
-						<input type="submit" value="Comprar" class="aceptar btn btn-primary" style="width:200px">	
+						<input type="submit" value="Comprar" class="aceptar btn btn-primary	" style="width:200px">	
 					<?php } else { ?>
 						<a href="<?=$base_url?>/user_login.php" class="btn btn-warning">Iniciar Sesión Para comprar!</a>
 					<?php } ?>

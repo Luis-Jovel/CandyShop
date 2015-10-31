@@ -27,29 +27,31 @@
 			<div class="logo">
 				<a class="col-md-4 col-lg-4 col-sm-12 col-xs-12" href="<?=$base_url?>">
 					<img src="<?=$base_url?>/imagenes/logo.png" alt="">
-				</a><!--
-			 --><div id="container-buscar" class="input-group col-md-8 col-lg-8 col-sm-12 col-xs-12">
-					<div class="input-group-btn">
-						<select name="" id="" class="form-control">
-							<option value="%" default>Todo</option>
-							<?php 
-								$categorias = getCategorias();
-								foreach ($categorias as $key => $value) {
-							?>
-							<option value="<?=$value['idcategoria']?>"><?=$value['nombre']?></option>
-							<?php		
-								}
-							?>
-						</select>
-					</div><!-- /btn-group -->
-					<input type="text" class="form-control" placeholder="Buscar" id="txtbuscar" />
-					<span class="input-group-btn">
-						<button class="btn btn-default" type="button">
-							<i class="fa fa-search"></i>
-						</button>
-					</span>
-				</div><!--
-	     --></div>
+				</a>
+				<form action="<?=$base_url?>" method="get">
+			 		<div id="container-buscar" class="input-group col-md-8 col-lg-8 col-sm-12 col-xs-12">
+						<div class="input-group-btn">
+							<select name="idcategoria" id="" class="form-control">
+								<option value="%" default>Todo</option>
+								<?php 
+									$categorias = getCategorias();
+									foreach ($categorias as $key => $value) {
+								?>
+								<option value="<?=$value['idcategoria']?>"><?=$value['nombre']?></option>
+								<?php		
+									}
+								?>
+							</select>
+						</div><!-- /btn-group -->
+						<input type="text" class="form-control" placeholder="Buscar" id="txtbuscar" name="nombre" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="submit">
+								<i class="fa fa-search"></i>
+							</button>
+						</span>
+					</div>
+				</form>
+	        </div>
 		</div>
 		<nav class="navbar navbar-inverse">
   			<div class="container-fluid">

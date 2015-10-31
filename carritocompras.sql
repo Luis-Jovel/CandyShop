@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-10-30 02:12:57
+Date: 2015-10-30 22:13:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -57,24 +57,22 @@ CREATE TABLE `compras` (
   KEY `idusuario` (`idusuario`),
   CONSTRAINT `fk_compras_productos` FOREIGN KEY (`idproducto`) REFERENCES `productos` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `fk_compras_usuarios` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`Id`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- ----------------------------
 -- Records of compras
 -- ----------------------------
-INSERT INTO `compras` VALUES ('10', null, null, '7', 'Bolsa de gomitas azucaradas', 'gomitas.jpg', '10.5', '1', '10.5');
-INSERT INTO `compras` VALUES ('11', null, null, '8', 'Paquete dulces cute', 'cute.png', '5.99', '1', '5.99');
-INSERT INTO `compras` VALUES ('12', null, null, '8', 'Globos 10 pulgadas x50', 'globos.jpg', '7.99', '1', '7.99');
-INSERT INTO `compras` VALUES ('14', null, null, '9', 'Globos 10 pulgadas x50', 'globos.jpg', '7.99', '1', '7.99');
-INSERT INTO `compras` VALUES ('15', null, null, '10', 'Globos 10 pulgadas x50', 'globos.jpg', '7.99', '1', '7.99');
-INSERT INTO `compras` VALUES ('16', null, null, '10', 'Utensilios de mesa blancos', 'curbeteria.jpg', '3.99', '1', '3.99');
-INSERT INTO `compras` VALUES ('17', null, null, '11', 'Pi&ntilde;ata de minion', 'pinata-minion.jpg', '9.99', '1', '9.99');
-INSERT INTO `compras` VALUES ('18', null, null, '12', 'Pi&ntilde;ata de minion', 'pinata-minion.jpg', '9.99', '1', '9.99');
-INSERT INTO `compras` VALUES ('19', null, null, '13', 'Guirnaldas Cumplea&ntilde;eras', 'guirnalda.jpg', '4.99', '1', '4.99');
 INSERT INTO `compras` VALUES ('20', '6', '2', '14', 'Pi&ntilde;ata de minion', 'pinata-minion.jpg', '9.99', '1', '9.99');
 INSERT INTO `compras` VALUES ('21', '8', '2', '14', 'Guirnaldas Cumplea&ntilde;eras', 'guirnalda.jpg', '4.99', '1', '4.99');
 INSERT INTO `compras` VALUES ('22', '1', '2', '14', 'Bolsa de gomitas azucaradas', 'gomitas.jpg', '10.5', '1', '10.5');
 INSERT INTO `compras` VALUES ('23', '5', '2', '15', 'Orden de cupcakes', 'cupcake.jpg', '9.99', '1', '9.99');
+INSERT INTO `compras` VALUES ('24', '4', '1', '16', 'Utensilios de mesa blancos', 'curbeteria.jpg', '3.99', '1', '3.99');
+INSERT INTO `compras` VALUES ('25', '8', '2', '17', 'Guirnaldas Cumplea&ntilde;eras', 'guirnalda.jpg', '4.99', '1', '4.99');
+INSERT INTO `compras` VALUES ('26', '5', '2', '18', 'Orden de cupcakes', 'cupcake.jpg', '9.99', '1', '9.99');
+INSERT INTO `compras` VALUES ('27', '8', '2', '18', 'Guirnaldas Cumplea&ntilde;eras', 'guirnalda.jpg', '4.99', '2', '9.98');
+INSERT INTO `compras` VALUES ('28', '5', '2', '19', 'Orden de cupcakes', 'cupcake.jpg', '9.99', '1', '9.99');
+INSERT INTO `compras` VALUES ('29', '3', '2', '19', 'Globos 10 pulgadas x50', 'globos.jpg', '7.99', '1', '7.99');
+INSERT INTO `compras` VALUES ('30', '1', '2', '19', 'Bolsa de gomitas azucaradas', 'gomitas.jpg', '10.5', '1', '10.5');
 
 -- ----------------------------
 -- Table structure for productos
