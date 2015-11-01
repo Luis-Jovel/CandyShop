@@ -22,6 +22,7 @@
 						<h2 class='producto-nombre'><?=$producto['nombre'];?></h2>
 					</a>
 					<div class="producto-detalles">
+					<!-- Agregando comentareo -->
 						<!-- <a class='btn btn-success' href="./detalles.php?id=<?=$producto['id']; ?>">Detalles</a> -->
 						<a class='btn btn-primary' href="./carritodecompras.php?id=<?=$producto['id']; ?>">Agregar al carrito</a>
 					</div>
