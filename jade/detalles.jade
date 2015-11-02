@@ -1,11 +1,9 @@
 - include 'include/header.php'
 script(src='#{$base_url}/js/scripts.js')
 
-|<?php
-|	$producto = getProductoPorId($_GET["id"],false);
-|	$count = count($producto);
-|?>
 :php
+	$producto = getProductoPorId($_GET["id"],false);
+	$count = count($producto);
 section.col-md-6.col-lg-6.col-sm-12.col-xs-12#body
 
 	|<?php if ($count > 0) {	
@@ -13,18 +11,21 @@ section.col-md-6.col-lg-6.col-sm-12.col-xs-12#body
 	|	if (isset($_SESSION["usuario"])) 
 	|		productoVisto($_GET["id"], $_SESSION["usuario"]["Id"]);
 	|?>
-	.producto
-		.col-md-5.col-lg-5.col-sm-6.col-xs-12
+	.producto.row
+		.col-md-12.col-lg-5.col-sm-6.col-xs-12
 			span.producto-precio=$producto['precio']
 			a.producto-image-container(href='./detalles.php?id=#{$producto[0]}')
 				img(src='./productos/#{$producto[6]}')
-		.producto-detalles.col-md-7.col-lg-7.col-sm-6.col-xs-12
+		.producto-detalles.col-md-12.col-lg-7.col-sm-6.col-xs-12
 			h2.producto-nombre!=$producto['nombre']
 			p.producto-descripcion!=$producto['descripcion']
 			p.producto-descripcion-precio.
 				Precio: <?=$producto['precio']?>
 			a.btn.btn-primary(href!='./carritodecompras.php?id=#{$producto[0]}').
-				Añadir al Carrito de Compras
+				Añadir al Carrito de Comprass
+
+	.ProductosRelacionados
+		- include 'include/productosrelacionados.php'
 	- } else {
 	.alert.alert-warning(role='alert') No hay productos a mostrar
 	- }

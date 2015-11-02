@@ -108,4 +108,22 @@
 		}
 		return $rows;
 	}
+	function getProductoRelacionado($id="%"){
+		global $db;
+		$idcategoria = "";
+		$Producto = getProductoPorId($id,false);
+		foreach ($Producto as $key) {
+			$idcategoria = $key["idcategoria"];
+		}
+		$stmt = $db->prepare("SELECT pt.* FROM productos as pt WHERE idcategoria = ? AND Id <> ? LIMIT 0,4");
+		$stmt->bind_param("ii",$idcategoria,$id);
+		$rows = array();
+		if ($stmt->execute()) {
+			$result = $stmt->get_result();
+			while ($row = $result->fetch_object()) {
+				array_push($rows, $row);
+			}
+		}
+		return $rows;
+	}
 ?>
