@@ -111,3 +111,5 @@
   			</div>
 		</nav>
 	</header>
+	<section class="container-fluid">
+	<?php include "panel_recomendados.php" ?>

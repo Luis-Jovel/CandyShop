@@ -73,7 +73,7 @@
 	}
 ?>
 <script src="<?=$base_url?>/js/scripts.js"></script>
-	<section class="container">
+	<section class="col-md-8 col-lg-8 col-sm-12 col-xs-12" id="body">
 		<?php
 		$total = 0;
 		if (isset($_SESSION['carrito']))
