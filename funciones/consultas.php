@@ -54,7 +54,16 @@
 			$result = $stmt->get_result();
 			while ($row = $result->fetch_assoc()) {
 				array_push($rows, $row);
+				if ($assoc) {
+				while ($row = $result->fetch_assoc()) {
+					array_push($rows, $row);
+				}
+			} else {
+				while ($row = $result->fetch_array()) {
+					array_push($rows, $row);
+				}
 			}
+			
 		}
 		return $rows;
 	}
