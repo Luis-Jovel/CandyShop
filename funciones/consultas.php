@@ -65,4 +65,11 @@
 		}
 		return $rows;
 	}
+	function productoVisto($idproducto, $idusuario){
+		global $db;
+		$stmt = $db->prepare("INSERT INTO visita (idproducto, idusuario) VALUES (?, ?)");
+		$stmt->bind_param("ii",$idproducto, $idusuario);
+		$stmt->execute();
+		$stmt->close();
+	}
 ?>
