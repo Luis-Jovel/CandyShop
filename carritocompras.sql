@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-10-30 22:13:13
+Date: 2015-11-01 19:49:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -123,3 +123,23 @@ CREATE TABLE `usuarios` (
 -- ----------------------------
 INSERT INTO `usuarios` VALUES ('1', 'Moises', 'Montano', 'Moises', '123', 'imagen.jpg');
 INSERT INTO `usuarios` VALUES ('2', 'Luis', 'Jovel', 'luis_jovel', '123456', '');
+
+-- ----------------------------
+-- Table structure for visita
+-- ----------------------------
+DROP TABLE IF EXISTS `visita`;
+CREATE TABLE `visita` (
+  `idvisita` int(11) NOT NULL AUTO_INCREMENT,
+  `idproducto` int(11) DEFAULT NULL,
+  `idusuario` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`idvisita`),
+  KEY `idproducto` (`idproducto`),
+  KEY `idusuario` (`idusuario`),
+  CONSTRAINT `visita_ibfk_1` FOREIGN KEY (`idproducto`) REFERENCES `productos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `visita_ibfk_2` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of visita
+-- ----------------------------
