@@ -35,4 +35,7 @@
 		echo $count<=0?"<div class='alert alert-warning' role='alert'>No hay productos a mostrar</div>":"";
 		?>
 	</section>
+
+<?php include 'vistasrecientes.php'; ?>
+
 <?php include 'include/footer.php'; ?>

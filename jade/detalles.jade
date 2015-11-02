@@ -1,7 +1,7 @@
 - include 'include/header.php'
 script(src='#{$base_url}/js/scripts.js')
 :php
-	$producto = getProductoPorId($_GET["id"],false);
+	$producto = getProductoPorId($_GET["id"],false);	
 	$count = count($producto);
 section.container
 	|<?php if ($count > 0) {	
@@ -24,4 +24,5 @@ section.container
 	- } else {
 	.alert.alert-warning(role='alert') No hay productos a mostrar
 	- }
+- include 'vistasrecientes.php'
 - include 'include/footer.php'
