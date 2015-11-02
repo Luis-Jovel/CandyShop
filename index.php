@@ -1,5 +1,5 @@
 <?php include 'include/header.php'; ?>
-	<section class="col-md-8 col-lg-8 col-sm-12 col-xs-12" id="body">
+	<section class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="body">
 	<?php
 		$count = 0;
 		$categorias = isset($_GET["idcategoria"])?getCategorias($_GET["idcategoria"]):getCategorias();
@@ -14,7 +14,7 @@
 			foreach ($productos as $key => $producto) {
 		?>
 			<!-- <div class="col-md-2 col-lg-2 col-sm-3 col-xs-12 producto-container"> -->
-			<div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 producto-container">
+			<div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 producto-container">
 				<div class="producto">
 					<span class='producto-precio'>$<?=$producto['precio'];?></span>
 					<a href="./detalles.php?id=<?=$producto['id']; ?>">

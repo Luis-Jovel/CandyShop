@@ -1,3 +1,4 @@
-<section id="vistos-recientes" class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
-	<?php include 'vistasrecientes.php'; ?>
-</section>
+<section id="vistos-recientes" class="col-md-2 col-lg-2 col-sm-12 col-xs-12"><h4>Vistos recientemente</h4><?php if (isset($_SESSION["usuario"])) {
+ $productos = getUltimasVistas($_SESSION["usuario"]["Id"]); 
+ foreach ($productos as $producto) { ?><div class="reciente col-lg-12 col-md-12 col-sm-3 col-xs-3"><div class="producto col-lg-8 col-lg-offset-2 col-md-12"><a href="<?php echo htmlspecialchars('./detalles.php?id=' . ($producto[0]) . '', ENT_QUOTES, 'UTF-8'); ?>"><img src="<?php echo htmlspecialchars('./productos/' . ($producto[6]) . '', ENT_QUOTES, 'UTF-8'); ?>"/><span><?php echo $producto['nombre']; ?></span></a></div></div><?php } 
+} ?></section>
