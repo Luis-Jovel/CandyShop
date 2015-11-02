@@ -126,4 +126,23 @@
 		}
 		return $rows;
 	}
+	function getProductoRecomendados($id="%")
+	{
+		global $db;
+		$stmt = $db->prepare("SELECT DISTINCT ordenada.* FROM 
+					(SELECT p.*,c.idusuario FROM  compras c 
+						INNER JOIN productos p ON p.id = c.idproducto 
+						ORDER BY created_at DESC ) ordenada 
+					WHERE ordenada.idusuario = ?
+					group by idcategoria LIMIT 0,4");
+		$stmt->bind_param("i",$id);
+		$rows = array();
+		if ($stmt->execute()) {
+			$result = $stmt->get_result();
+			while ($row = $result->fetch_object()) {
+				array_push($rows, $row);
+			}
+		}
+		return $rows;
+	}
 ?>
