@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-11-02 15:03:53
+Date: 2015-11-02 17:26:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -55,7 +55,7 @@ CREATE TABLE `compras` (
   KEY `idusuario` (`idusuario`),
   CONSTRAINT `fk_compras_productos` FOREIGN KEY (`idproducto`) REFERENCES `productos` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `fk_compras_usuarios` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`Id`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- ----------------------------
 -- Records of compras
@@ -73,6 +73,12 @@ INSERT INTO `compras` VALUES ('29', '3', '2', '19', '1', '7.99', '2015-11-02 14:
 INSERT INTO `compras` VALUES ('30', '1', '2', '19', '1', '10.5', '2015-11-02 14:54:28');
 INSERT INTO `compras` VALUES ('31', '5', '2', '20', '1', '9.99', '2015-11-02 14:54:50');
 INSERT INTO `compras` VALUES ('32', '1', '2', '21', '1', '10.5', '2015-11-02 15:02:54');
+INSERT INTO `compras` VALUES ('33', '3', '2', '22', '1', '7.99', '2015-11-02 15:53:52');
+INSERT INTO `compras` VALUES ('34', '1', '2', '23', '1', '10.5', '2015-11-02 16:15:47');
+INSERT INTO `compras` VALUES ('35', '3', '2', '24', '1', '7.99', '2015-11-02 16:24:53');
+INSERT INTO `compras` VALUES ('36', '8', '2', '24', '1', '4.99', '2015-11-02 16:24:53');
+INSERT INTO `compras` VALUES ('37', '8', '2', '25', '1', '4.99', '2015-11-02 16:43:12');
+INSERT INTO `compras` VALUES ('38', '2', '2', '25', '1', '5.99', '2015-11-02 16:43:12');
 
 -- ----------------------------
 -- Table structure for productos
@@ -90,7 +96,7 @@ CREATE TABLE `productos` (
   PRIMARY KEY (`id`),
   KEY `fk_producto_categoria` (`idcategoria`),
   CONSTRAINT `fk_producto_categoria` FOREIGN KEY (`idcategoria`) REFERENCES `categoria` (`idcategoria`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- ----------------------------
 -- Records of productos
@@ -103,6 +109,13 @@ INSERT INTO `productos` VALUES ('5', '1', 'Orden de cupcakes', 'Cupckakes Order'
 INSERT INTO `productos` VALUES ('6', '4', 'Pi&ntilde;ata de minion', 'Minion Piñata', 'Pi&ntilde;ata de minion para celebraciones de fiestas de cumplea&ntilde;os o aniversarios<br>Dimensiones: 0.5 m alto', 'Minion pi&ntilde;ata for celebration parties, bithday parties o arnniversaries. <br> Dimensions: 0.5 m high', 'pinata-minion.jpg', '9.99');
 INSERT INTO `productos` VALUES ('7', '6', 'Animador Titiritero Don\'t Hug Me I\'m Scared', 'Animator Don\'t Hug Me I\'m Scared Puppeter', 'Titiritero con su serie de marionetas Don\'t Hug Me I\'m Scared <br> Ofrece varios actos con los titeres: <br> - Yellow Guy <br> - Red Guy y <br> - Green Guy ', 'Puppeter with the puppets of the series Don\'t Hug Me I\'m Scared <br> Offers varios performances whith the following puppets: <br>  - Yellow Guy <br> - Red Guy y <br> - Green Guy ', 'hugme.jpg', '49.99');
 INSERT INTO `productos` VALUES ('8', '2', 'Guirnaldas Cumplea&ntilde;eras', 'Birthday Garlands', 'Guirnaldas para decoraci&oacute;n en fiestas de cumplea&ntilde;os, paquete surtido con distintas formas y colores', 'Garlands for birthdays celebration, this package containts various colours and shapes of garlands', 'guirnalda.jpg', '4.99');
+INSERT INTO `productos` VALUES ('9', '5', 'M&M Personalizados', 'Custom M&M', 'M&M personalizados para adaptarse a la fiesta o situacion correcta, disponible en rosado y azul', 'Custom M&M available in pink and blue whener the situation demands it', 'm and m.jpg', '2.99');
+INSERT INTO `productos` VALUES ('10', '1', 'Pastel de Cumplea&ntilde;os', 'Birthday cake', 'Pastel de cumplea&ntilde;os de chocolate con cubierta de vainilla tama&ntilde;o mediano<br>Incluye dedicatoria, velas y decoracion', 'Chocolate Birthday cake with a layer of vanilla, medium size.<br>Includes a quote, candles and decoration', 'birthday-cake.jpg', '14.99');
+INSERT INTO `productos` VALUES ('11', '1', 'Pastel de Arcoiris', 'Rainbow Cake', 'Pastel de arcoiris con tantos sabores como colores tiene el arcoiris<br>Perfecto para fiestas de cumplea&ntilde;os y/o aniversarios', 'Rainbow cake with flavors as color has the rainbow<br> Perfect for birthday parties and/or aniversaries', 'rainbow-cake.jpg', '14.99');
+INSERT INTO `productos` VALUES ('12', '2', 'Florero de origami', 'Origami flower base', 'Florero de oigami para decorar fiestas con o sin tem&aacute;tica<br><br> Se ofrece diferentes tipos de colores y estilos de flores', 'Origami flower base for party decoration with or without theme<br><br>We offer different types of flowers en multiple colors', 'florero.jpg', '4.99');
+INSERT INTO `productos` VALUES ('13', '3', 'Cubiertos decorados', 'Decorated Cutlery', 'Cubiertos de plastico decorados con listones de colores', 'Decorated clutery with coloful ribbons', 'cubierto-decorado.jpg', '3.99');
+INSERT INTO `productos` VALUES ('14', '4', 'Pi&ntilde;ata para fiestas tradicional', 'Traditional party pi&ntilde;ata', 'Pi&ntilde;ata para fiestas tradicional, no incluye dulces<br>Dimensiones: 0.5 m alto', 'Traditional party pi&ntilde;ata, candies not included<br>Dimensions: 0.5 m tall', 'pinata-fiestas.png', '9.99');
+INSERT INTO `productos` VALUES ('15', '6', 'Animadores pantilla Yo Gabba Gabba', 'Yo Gabba Gabba crew Animators', 'Animadores de la famosa serie de televisi&oacute;n infantil Yo Gabba Gabba', 'Animator form the famous tv show Yo Gabba Gabba', 'yo-gabba.jpg', '49.99');
 
 -- ----------------------------
 -- Table structure for usuarios
@@ -138,7 +151,7 @@ CREATE TABLE `visita` (
   KEY `idusuario` (`idusuario`),
   CONSTRAINT `visita_ibfk_1` FOREIGN KEY (`idproducto`) REFERENCES `productos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `visita_ibfk_2` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=166 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of visita
@@ -272,3 +285,26 @@ INSERT INTO `visita` VALUES ('139', '3', '2', '2015-11-02 13:55:36');
 INSERT INTO `visita` VALUES ('140', '1', '2', '2015-11-02 13:55:46');
 INSERT INTO `visita` VALUES ('141', '5', '2', '2015-11-02 14:54:46');
 INSERT INTO `visita` VALUES ('142', '1', '2', '2015-11-02 15:02:48');
+INSERT INTO `visita` VALUES ('143', '5', '2', '2015-11-02 15:42:20');
+INSERT INTO `visita` VALUES ('144', '3', '2', '2015-11-02 15:42:32');
+INSERT INTO `visita` VALUES ('145', '8', '2', '2015-11-02 15:54:21');
+INSERT INTO `visita` VALUES ('146', '3', '2', '2015-11-02 15:54:25');
+INSERT INTO `visita` VALUES ('147', '3', '2', '2015-11-02 15:54:32');
+INSERT INTO `visita` VALUES ('148', '3', '2', '2015-11-02 15:55:39');
+INSERT INTO `visita` VALUES ('149', '1', '2', '2015-11-02 16:15:42');
+INSERT INTO `visita` VALUES ('150', '3', '2', '2015-11-02 16:24:45');
+INSERT INTO `visita` VALUES ('151', '3', '2', '2015-11-02 16:24:49');
+INSERT INTO `visita` VALUES ('152', '8', '2', '2015-11-02 16:24:50');
+INSERT INTO `visita` VALUES ('153', '2', '2', '2015-11-02 16:43:10');
+INSERT INTO `visita` VALUES ('154', '9', '2', '2015-11-02 16:54:52');
+INSERT INTO `visita` VALUES ('155', '9', '2', '2015-11-02 16:55:03');
+INSERT INTO `visita` VALUES ('156', '11', '2', '2015-11-02 17:01:14');
+INSERT INTO `visita` VALUES ('157', '11', '2', '2015-11-02 17:01:48');
+INSERT INTO `visita` VALUES ('158', '10', '2', '2015-11-02 17:01:50');
+INSERT INTO `visita` VALUES ('159', '12', '2', '2015-11-02 17:12:21');
+INSERT INTO `visita` VALUES ('160', '12', '2', '2015-11-02 17:12:38');
+INSERT INTO `visita` VALUES ('161', '13', '2', '2015-11-02 17:13:05');
+INSERT INTO `visita` VALUES ('162', '14', '2', '2015-11-02 17:18:10');
+INSERT INTO `visita` VALUES ('163', '15', '2', '2015-11-02 17:23:27');
+INSERT INTO `visita` VALUES ('164', '15', '2', '2015-11-02 17:24:03');
+INSERT INTO `visita` VALUES ('165', '14', '2', '2015-11-02 17:24:11');
