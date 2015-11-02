@@ -88,4 +88,23 @@
 		}
 		return $rows;
 	}
+	function getProductoRelacionado($id="%"){
+		global $db;
+		$idcategoria = "";
+		$Producto = getProductoPorId($id,false);
+		foreach ($Producto as $key) {
+			$idcategoria = $key["id"];
+		}
+		
+		$stmt = $db->prepare("SELECT pt.* FROM productos as pt WHERE idcategoria = ?");
+		$stmt->bind_param("i",$idcategoria);
+		$rows = array();
+		if ($stmt->execute()) {
+			$result = $stmt->get_result();
+			while ($row = $result->fetch_object()) {
+				array_push($rows, $row);
+			}
+		}
+		return $rows;
+	}
 ?>
