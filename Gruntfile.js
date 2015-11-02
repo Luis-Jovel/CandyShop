@@ -38,7 +38,7 @@ module.exports = function(grunt) {
                     spawn: false,
                 },
             },
-            jade: {
+            jadephp: {
                 files: ['jade/*.jade'],
                 tasks: ['jadephp'],
                 options: {
@@ -65,8 +65,11 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'jade/',
                 src: ['*.jade'],
-                dest: '/',
-                ext: '.php'
+                dest: '',
+                ext: '.php',
+                options: {
+                  //pretty: true
+                },
             }
         }
     });

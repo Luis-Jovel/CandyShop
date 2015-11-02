@@ -1,0 +1,19 @@
+- include 'include/header.php'
+script(src='#{$base_url}/js/scripts.js')
+:php
+	$producto = getProductoPorId($_GET["id"],false);
+	$producto = $producto[0];
+section.container
+	.producto
+		.col-md-5.col-lg-5.col-sm-6.col-xs-12
+			span.producto-precio=$producto['precio']
+			a.producto-image-container(href='./detalles.php?id=#{$producto[0]}')
+				img(src='./productos/#{$producto[6]}')
+		.producto-detalles.col-md-7.col-lg-7.col-sm-6.col-xs-12
+			h2.producto-nombre=$producto['nombre']
+			p.producto-descripcion=$producto['descripcion']
+			p.producto-descripcion-precio.
+				Precio: <?=$producto['precio']?>
+			a.btn.btn-primary(href!='./carritodecompras.php?id=#{$producto[0]}').
+				Añadir al Carrito de Compras
+- include 'include/footer.php'
