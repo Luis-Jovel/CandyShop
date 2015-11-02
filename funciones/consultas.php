@@ -44,7 +44,7 @@
 		}
 		return $rows;
 	}
-	function getProductoPorId($id="%"){
+	function getProductoPorId($id="%", $assoc = true){
 		global $db;
 		$stmt = $db->prepare("SELECT * FROM productos WHERE Id LIKE ?");
 		$tipo = $id=="%"?"s":"i";
@@ -52,9 +52,8 @@
 		$rows = array();
 		if ($stmt->execute()) {
 			$result = $stmt->get_result();
-			while ($row = $result->fetch_assoc()) {
-				array_push($rows, $row);
-				if ($assoc) {
+
+			if ($assoc) {
 				while ($row = $result->fetch_assoc()) {
 					array_push($rows, $row);
 				}
@@ -63,7 +62,7 @@
 					array_push($rows, $row);
 				}
 			}
-			
+
 		}
 		return $rows;
 	}
