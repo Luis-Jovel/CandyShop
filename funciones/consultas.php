@@ -116,7 +116,7 @@
 			$idcategoria = $key["id"];
 		}
 		
-		$stmt = $db->prepare("SELECT pt.* FROM productos as pt WHERE idcategoria = ?");
+		$stmt = $db->prepare("SELECT pt.* FROM productos as pt WHERE idcategoria = ? LIMIT 0,4");
 		$stmt->bind_param("i",$idcategoria);
 		$rows = array();
 		if ($stmt->execute()) {
