@@ -11,6 +11,7 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Candy Shop</title>
 	<!-- <link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/estilos.css"> -->
 	<link rel="shortcut icon" href="<?=$base_url?>/favicon.ico" type="image/x-icon">

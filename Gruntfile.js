@@ -70,6 +70,13 @@ module.exports = function(grunt) {
                 options: {
                   //pretty: true
                 },
+            },
+            include: {
+                expand: true,
+                cwd: 'jade/include',
+                src: ['*.jade'],
+                dest: 'include/',
+                ext: '.php'
             }
         }
     });
