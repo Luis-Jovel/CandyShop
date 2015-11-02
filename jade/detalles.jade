@@ -2,8 +2,13 @@
 script(src='#{$base_url}/js/scripts.js')
 :php
 	$producto = getProductoPorId($_GET["id"],false);
-	$producto = $producto[0];
+	$count = count($producto);
 section.container
+	|<?php if ($count > 0) {	
+	|	$producto = $producto[0]; 
+	|	if (isset($_SESSION["usuario"])) 
+	|		productoVisto($_GET["id"], $_SESSION["usuario"]["Id"]);
+	|?>
 	.producto
 		.col-md-5.col-lg-5.col-sm-6.col-xs-12
 			span.producto-precio=$producto['precio']
@@ -16,4 +21,7 @@ section.container
 				Precio: <?=$producto['precio']?>
 			a.btn.btn-primary(href!='./carritodecompras.php?id=#{$producto[0]}').
 				Añadir al Carrito de Compras
+	- } else {
+	.alert.alert-warning(role='alert') No hay productos a mostrar
+	- }
 - include 'include/footer.php'
