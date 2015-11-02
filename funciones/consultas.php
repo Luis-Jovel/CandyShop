@@ -52,6 +52,7 @@
 		$rows = array();
 		if ($stmt->execute()) {
 			$result = $stmt->get_result();
+
 			if ($assoc) {
 				while ($row = $result->fetch_assoc()) {
 					array_push($rows, $row);
@@ -61,7 +62,7 @@
 					array_push($rows, $row);
 				}
 			}
-			
+
 		}
 		return $rows;
 	}
@@ -71,5 +72,20 @@
 		$stmt->bind_param("ii",$idproducto, $idusuario);
 		$stmt->execute();
 		$stmt->close();
+	}
+	// Funcion para Mostrar las ultimas vistas
+	function getUltimasVistas()
+	{
+		global $db;
+		$query = "SELECT pt.* FROM visita as vt INNER JOIN productos as pt on vt.idproducto = pt.id group by pt.id ORDER BY vt.idvisita limit 0,4" ;
+		$stmt = $db->query($query);
+		$rows = array();		
+		while ($row = $stmt->fetch_object()) {
+			$rows[]	= array(
+				'idProducto' => $row->id,
+				'sNombre'=>$row->nombre
+				);
+		}
+		return $rows;
 	}
 ?>
