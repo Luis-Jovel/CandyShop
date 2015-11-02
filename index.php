@@ -36,6 +36,4 @@
 		?>
 	</section>
 
-<?php include 'vistasrecientes.php'; ?>
-
 <?php include 'include/footer.php'; ?>
