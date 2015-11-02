@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 <?php include 'include/header.php' ?><script src="<?php echo htmlspecialchars('' . ($base_url) . '/js/scripts.js', ENT_QUOTES, 'UTF-8'); ?>"></script><?php
 	$producto = getProductoPorId($_GET["id"],false);
 	$count = count($producto);
 ?><section id="body" class="col-md-8 col-lg-8 col-sm-12 col-xs-12"><?php if ($count > 0) {	
+=======
+<?php include 'include/header.php' ?><script src="<?php echo htmlspecialchars('' . ($base_url) . '/js/scripts.js', ENT_QUOTES, 'UTF-8'); ?>"></script><?php $producto = getProductoPorId($_GET["id"],false);	
+$count = count($producto); ?><section class="container"><?php if ($count > 0) {	
+>>>>>>> master
 	$producto = $producto[0]; 
 	if (isset($_SESSION["usuario"])) 
 		productoVisto($_GET["id"], $_SESSION["usuario"]["Id"]);
