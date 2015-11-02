@@ -44,7 +44,7 @@
 		}
 		return $rows;
 	}
-	function getProductoPorId($id="%"){
+	function getProductoPorId($id="%", $assoc = true){
 		global $db;
 		$stmt = $db->prepare("SELECT * FROM productos WHERE Id LIKE ?");
 		$tipo = $id=="%"?"s":"i";
@@ -52,10 +52,24 @@
 		$rows = array();
 		if ($stmt->execute()) {
 			$result = $stmt->get_result();
-			while ($row = $result->fetch_assoc()) {
-				array_push($rows, $row);
+			if ($assoc) {
+				while ($row = $result->fetch_assoc()) {
+					array_push($rows, $row);
+				}
+			} else {
+				while ($row = $result->fetch_array()) {
+					array_push($rows, $row);
+				}
 			}
+			
 		}
 		return $rows;
+	}
+	function productoVisto($idproducto, $idusuario){
+		global $db;
+		$stmt = $db->prepare("INSERT INTO visita (idproducto, idusuario) VALUES (?, ?)");
+		$stmt->bind_param("ii",$idproducto, $idusuario);
+		$stmt->execute();
+		$stmt->close();
 	}
 ?>

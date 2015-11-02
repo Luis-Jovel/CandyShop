@@ -1,3 +1,5 @@
+<?php include "panel_visitados.php" ?>
+</section>
 <footer>
 	<div class="row footer-top">
 		<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">

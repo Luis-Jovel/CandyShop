@@ -1,5 +1,5 @@
 <?php include 'include/header.php'; ?>
-	<section class="container">
+	<section class="col-md-8 col-lg-8 col-sm-12 col-xs-12" id="body">
 	<?php
 		$count = 0;
 		$categorias = isset($_GET["idcategoria"])?getCategorias($_GET["idcategoria"]):getCategorias();
