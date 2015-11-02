@@ -99,7 +99,7 @@ nav
 		//height 255px
 		//height 150px
 	img.fixed-height
-		height 255px
+		height 178px
 	img:hover
 		opacity 0.6
 	.producto-detalles
@@ -110,6 +110,7 @@ nav
 		height 44px
 		max-height 44px
 		margin 10px 0 10px 0
+		overflow hidden
 		width 100%
 	.producto-descripcion
 		color black
@@ -162,6 +163,25 @@ footer
 	display inline-block !important
 	vertical-align middle !important
 	float none !important
+#vistos-recientes
+	text-align center
+	.reciente
+		line-height 1.4	
+		margin-bottom 20px
+		text-align left
 @media (max-width: 991px)
 	#container-buscar
 		padding 0
+	.producto
+		max-height none
+		img.fixed-height
+			height auto
+			max-height none 
+			width 100%
+@media (max-width: 750px)
+	.producto
+		max-height none
+		img.fixed-height 
+			height auto
+			max-height none
+			width 100%

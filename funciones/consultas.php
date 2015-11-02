@@ -74,17 +74,55 @@
 		$stmt->close();
 	}
 	// Funcion para Mostrar las ultimas vistas
-	function getUltimasVistas()
+	function getUltimasVistas($idusuario)
 	{
 		global $db;
-		$query = "SELECT pt.* FROM visita as vt INNER JOIN productos as pt on vt.idproducto = pt.id group by pt.id ORDER BY vt.idvisita limit 0,4" ;
-		$stmt = $db->query($query);
+		$query = 
+			"SELECT DISTINCT 
+				ordenada.*
+			FROM 
+				(
+					SELECT 
+						p.*,v.idusuario 
+					FROM 
+						visita v
+					INNER JOIN
+						productos p
+					ON
+						p.id = v.idproducto
+					ORDER BY 
+						created_at DESC
+				) ordenada
+			WHERE
+				ordenada.idusuario=?
+			LIMIT
+				0,5";
+		$stmt = $db->prepare($query);
+		$stmt->bind_param("i",$idusuario);
 		$rows = array();		
-		while ($row = $stmt->fetch_object()) {
-			$rows[]	= array(
-				'idProducto' => $row->id,
-				'sNombre'=>$row->nombre
-				);
+		if ($stmt->execute()) {
+			$result = $stmt->get_result();
+			while ($row = $result->fetch_array()) {
+				array_push($rows, $row);
+			}
+		}
+		return $rows;
+	}
+	function getProductoRelacionado($id="%"){
+		global $db;
+		$idcategoria = "";
+		$Producto = getProductoPorId($id,false);
+		foreach ($Producto as $key) {
+			$idcategoria = $key["idcategoria"];
+		}
+		$stmt = $db->prepare("SELECT pt.* FROM productos as pt WHERE idcategoria = ? AND Id <> ? LIMIT 0,4");
+		$stmt->bind_param("ii",$idcategoria,$id);
+		$rows = array();
+		if ($stmt->execute()) {
+			$result = $stmt->get_result();
+			while ($row = $result->fetch_object()) {
+				array_push($rows, $row);
+			}
 		}
 		return $rows;
 	}

@@ -24,13 +24,10 @@
 	}
 
 	for ($i=0; $i < count($arreglo); $i++) { 
-		$query = "INSERT INTO compras (idproducto, idusuario, numeroventa, nombre, imagen, precio, cantidad, subtotal) VALUES (
+		$query = "INSERT INTO compras (idproducto, idusuario, numeroventa, cantidad, subtotal) VALUES (
 				" . $arreglo[$i]['Id'] .",
 				" . $_SESSION["usuario"]["Id"] .",
 				" . $numeroventa . ",
-				'" . $arreglo[$i]['Nombre'] . "',
-				'" . $arreglo[$i]['Imagen'] . "',
-				" . $arreglo[$i]['Precio'] . ",
 				'" . $arreglo[$i]['Cantidad'] . "',
 				'" . ($arreglo[$i]['Precio']*$arreglo[$i]['Cantidad']) . "'
 				)";
