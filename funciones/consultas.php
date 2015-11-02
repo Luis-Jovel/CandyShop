@@ -113,11 +113,10 @@
 		$idcategoria = "";
 		$Producto = getProductoPorId($id,false);
 		foreach ($Producto as $key) {
-			$idcategoria = $key["id"];
+			$idcategoria = $key["idcategoria"];
 		}
-		
-		$stmt = $db->prepare("SELECT pt.* FROM productos as pt WHERE idcategoria = ? LIMIT 0,4");
-		$stmt->bind_param("i",$idcategoria);
+		$stmt = $db->prepare("SELECT pt.* FROM productos as pt WHERE idcategoria = ? AND Id <> ? LIMIT 0,4");
+		$stmt->bind_param("ii",$idcategoria,$id);
 		$rows = array();
 		if ($stmt->execute()) {
 			$result = $stmt->get_result();

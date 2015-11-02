@@ -39,7 +39,7 @@ module.exports = function(grunt) {
                 },
             },
             jadephp: {
-                files: ['jade/*.jade'],
+                files: ['jade/**/*.jade'],
                 tasks: ['jadephp'],
                 options: {
                     spawn: false,

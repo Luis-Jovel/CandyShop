@@ -1,9 +1,9 @@
 section#vistos-recientes.col-md-2.col-lg-2.col-sm-12.col-xs-12
-	h4 Vistos recientemente
 	:php
 		if (isset($_SESSION["usuario"])) {
-			$productos = getUltimasVistas($_SESSION["usuario"]["Id"]); 
-			foreach ($productos as $producto) {
+			$productos = getUltimasVistas($_SESSION["usuario"]["Id"]);
+	h4 Vistos recientemente
+	- foreach ($productos as $producto) {
 	.reciente.col-lg-12.col-md-12.col-sm-3.col-xs-3
 		.producto.col-lg-8.col-lg-offset-2.col-md-12
 			a(href='./detalles.php?id=#{$producto[0]}')
