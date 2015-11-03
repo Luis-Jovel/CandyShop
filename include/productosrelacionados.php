@@ -1,5 +1,5 @@
 <br><br>
-<h4>Productos Similares</h4>
+<h4><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_productos_similares']:$language['spanish']['label_productos_similares']?></h4>
 <?php $Productos = getProductoRelacionado($_GET["id"]);?>
 <?php foreach ($Productos as $Producto): ?>
 	<div class="producto col-lg-3 col-md-6 col-sm-6">

@@ -4,8 +4,12 @@
 	require_once(__ROOT__.'/variables.php');
 	require_once(__ROOT__.'/conexion.php'); 
 	include "funciones/consultas.php";
-	//dejar al usuario "quemado"
-	//$_SESSION["usuario"] = array("idusuario"=>1, "Nombre"=>"Moises");
+
+	if( isset($_GET['ES']) ){
+		$_SESSION['idioma'] = "ES";
+	} else if (isset($_GET['EN'])){
+		$_SESSION['idioma'] = "EN";
+	}	
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,26 +29,34 @@
 <body>
 	<header>
 		<div class="container-fluid">
+			<span id="cambiar_idioma">				
+				<a href="<?=$base_url?>?ES">Esp</a>/<a href="<?=$base_url?>?EN">Eng</a>
+			</span>
 			<div class="logo">
 				<a class="col-md-4 col-lg-4 col-sm-12 col-xs-12" href="<?=$base_url?>">
 					<img src="<?=$base_url?>/imagenes/logo.png" alt="">
 				</a>
 				<form action="<?=$base_url?>" method="get">
+					
 			 		<div id="container-buscar" class="input-group col-md-8 col-lg-8 col-sm-12 col-xs-12">
 						<div class="input-group-btn">
-							<select name="idcategoria" id="" class="form-control">
-								<option value="%" default>Todo</option>
+							<select name="idcategoria" id="header_cat" class="form-control">
+								<option value="%" default>
+									<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_todo']:$language['spanish']['label_todo']?>
+								</option>
 								<?php 
 									$categorias = getCategorias();
 									foreach ($categorias as $key => $value) {
 								?>
-								<option value="<?=$value['idcategoria']?>"><?=$value['nombre']?></option>
+								<option value="<?=$value['idcategoria']?>">
+									<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$value['nombre_EN']:$value['nombre']?>
+								</option>
 								<?php		
 									}
 								?>
 							</select>
 						</div><!-- /btn-group -->
-						<input type="text" class="form-control" placeholder="Buscar" id="txtbuscar" name="nombre" />
+						<input type="text" class="form-control" placeholder="<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_buscar']:$language['spanish']['label_buscar']?>" id="txtbuscar" name="nombre" />
 						<span class="input-group-btn">
 							<button class="btn btn-default" type="submit">
 								<i class="fa fa-search"></i>
@@ -68,15 +80,21 @@
 
     			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       				<ul class="nav navbar-nav">
-        				<li class="active"><a href="<?=$base_url?>">Catálogo <span class="sr-only">(current)</span></a></li>
+        				<li class="active"><a href="<?=$base_url?>"><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_catalogo']:$language['spanish']['label_catalogo']?> <span class="sr-only">(current)</span></a></li>
         				<li class="dropdown">
-          					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Productos <span class="caret"></span></a>
+          					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          						<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_productos']:$language['spanish']['label_productos']?>
+          						<span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
 								<?php 
 								$categorias = getCategorias();
 									foreach ($categorias as $key => $categoria) {
 								?>
-									<li><a id='cat_<?=$categoria['idcategoria']?>' href="<?=$base_url?>?idcategoria=<?=$categoria['idcategoria']?>"><?=$categoria['nombre']?></a></li>
+									<li>
+										<a id='cat_<?=$categoria['idcategoria']?>' href="<?=$base_url?>?idcategoria=<?=$categoria['idcategoria']?>">
+											<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$categoria['nombre_EN']:$categoria['nombre']?>
+										</a>
+									</li>
 								<?php		
 									}
 								?>
@@ -85,17 +103,17 @@
       				</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<?php
-							$usuario_label = "Invitado";
-							$login_menu = array("enlace"=>"user_login", "label" =>"Iniciar Sesión");
+							$usuario_label = ((isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN"))?$language['english']['label_invitado']:$language['spanish']['label_invitado'];
+							$login_menu = array("enlace"=>"user_login", "label" =>((isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN"))?$language['english']['label_iniciar_sesion']:$language['spanish']['label_iniciar_sesion']);
 							if (isset($_SESSION["usuario"])) {
 								$usuario_label = $_SESSION["usuario"]["Nombre"]." ".$_SESSION["usuario"]["Apellido"];
 								$login_menu["enlace"] = "logout";
-								$login_menu["label"] = "Cerrar Sesión";
+								$login_menu["label"] = ((isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN"))?$language['english']['label_cerrar_sesion']:$language['spanish']['label_cerrar_sesion'];
 							}
 						?>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-								Bienvenido <?=$usuario_label?>
+								<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_bienvenido']:$language['spanish']['label_bienvenido']?> <?=$usuario_label?>
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">

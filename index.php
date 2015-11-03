@@ -7,7 +7,7 @@
 		foreach ($categorias as $key => $categoria) {
 			$productos = isset($_GET["nombre"])?getProductoPorCategoria($categoria['idcategoria'],$_GET["nombre"]):getProductoPorCategoria($categoria['idcategoria']);
 			if (count($productos)>0) {
-				echo "<h3>".$categoria['nombre']."</h3><hr/>";
+				echo "<h3>".(((isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN"))?$categoria['nombre_EN']:$categoria['nombre'])."</h3><hr/>";
 				echo "<div class='row'>";	
 			}
 			$count += count($productos);
@@ -19,12 +19,12 @@
 					<span class='producto-precio'>$<?=$producto['precio'];?></span>
 					<a href="./detalles.php?id=<?=$producto['id']; ?>">
 						<img class="fixed-height" src="./productos/<?=$producto['imagen'];?>">
-						<h2 class='producto-nombre'><?=$producto['nombre'];?></h2>
+						<h2 class='producto-nombre'><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$producto['nombre_EN']:$producto['nombre']?></h2>
 					</a>
 					<div class="producto-detalles">
 					<!-- Agregando comentareo -->
 						<!-- <a class='btn btn-success' href="./detalles.php?id=<?=$producto['id']; ?>">Detalles</a> -->
-						<a class='btn btn-primary' href="./carritodecompras.php?id=<?=$producto['id']; ?>">Agregar al carrito</a>
+						<a class='btn btn-primary' href="./carritodecompras.php?id=<?=$producto['id']; ?>"><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_añadir_al_carrito_de_compras']:$language['spanish']['label_añadir_al_carrito_de_compras']?></a>
 					</div>
 				</div>
 			</div>
@@ -32,7 +32,8 @@
 			}
 			echo "</div>";
 		}
-		echo $count<=0?"<div class='alert alert-warning' role='alert'>No hay productos a mostrar</div>":"";
+		$msg = (isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_no_hay_productos_a_mostrar']:$language['spanish']['label_no_hay_productos_a_mostrar'];
+		echo $count<=0?"<div class='alert alert-warning' role='alert'>$msg</div>":"";
 		?>
 	</section>
 

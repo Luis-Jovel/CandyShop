@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-11-02 17:26:15
+Date: 2015-11-03 00:00:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -55,7 +55,7 @@ CREATE TABLE `compras` (
   KEY `idusuario` (`idusuario`),
   CONSTRAINT `fk_compras_productos` FOREIGN KEY (`idproducto`) REFERENCES `productos` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `fk_compras_usuarios` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`Id`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- ----------------------------
 -- Records of compras
@@ -79,6 +79,7 @@ INSERT INTO `compras` VALUES ('35', '3', '2', '24', '1', '7.99', '2015-11-02 16:
 INSERT INTO `compras` VALUES ('36', '8', '2', '24', '1', '4.99', '2015-11-02 16:24:53');
 INSERT INTO `compras` VALUES ('37', '8', '2', '25', '1', '4.99', '2015-11-02 16:43:12');
 INSERT INTO `compras` VALUES ('38', '2', '2', '25', '1', '5.99', '2015-11-02 16:43:12');
+INSERT INTO `compras` VALUES ('39', '10', '2', '26', '1', '14.99', '2015-11-02 23:56:23');
 
 -- ----------------------------
 -- Table structure for productos
@@ -96,7 +97,7 @@ CREATE TABLE `productos` (
   PRIMARY KEY (`id`),
   KEY `fk_producto_categoria` (`idcategoria`),
   CONSTRAINT `fk_producto_categoria` FOREIGN KEY (`idcategoria`) REFERENCES `categoria` (`idcategoria`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- ----------------------------
 -- Records of productos
@@ -116,6 +117,7 @@ INSERT INTO `productos` VALUES ('12', '2', 'Florero de origami', 'Origami flower
 INSERT INTO `productos` VALUES ('13', '3', 'Cubiertos decorados', 'Decorated Cutlery', 'Cubiertos de plastico decorados con listones de colores', 'Decorated clutery with coloful ribbons', 'cubierto-decorado.jpg', '3.99');
 INSERT INTO `productos` VALUES ('14', '4', 'Pi&ntilde;ata para fiestas tradicional', 'Traditional party pi&ntilde;ata', 'Pi&ntilde;ata para fiestas tradicional, no incluye dulces<br>Dimensiones: 0.5 m alto', 'Traditional party pi&ntilde;ata, candies not included<br>Dimensions: 0.5 m tall', 'pinata-fiestas.png', '9.99');
 INSERT INTO `productos` VALUES ('15', '6', 'Animadores pantilla Yo Gabba Gabba', 'Yo Gabba Gabba crew Animators', 'Animadores de la famosa serie de televisi&oacute;n infantil Yo Gabba Gabba', 'Animator form the famous tv show Yo Gabba Gabba', 'yo-gabba.jpg', '49.99');
+INSERT INTO `productos` VALUES ('16', '3', 'Plato de pl&aacute;stico', 'Plastic Plate', 'Plato de pl&aacute;stico para servir durante durante una fiesta, aniversario o celebración<br> tama&ntilde;o Mediano', 'Plastic plate for serving in parties, aniversaries or any celebration<br>Medium Size', 'plato.jpg', '0.3');
 
 -- ----------------------------
 -- Table structure for usuarios
@@ -151,7 +153,7 @@ CREATE TABLE `visita` (
   KEY `idusuario` (`idusuario`),
   CONSTRAINT `visita_ibfk_1` FOREIGN KEY (`idproducto`) REFERENCES `productos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `visita_ibfk_2` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=166 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=178 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of visita
@@ -308,3 +310,15 @@ INSERT INTO `visita` VALUES ('162', '14', '2', '2015-11-02 17:18:10');
 INSERT INTO `visita` VALUES ('163', '15', '2', '2015-11-02 17:23:27');
 INSERT INTO `visita` VALUES ('164', '15', '2', '2015-11-02 17:24:03');
 INSERT INTO `visita` VALUES ('165', '14', '2', '2015-11-02 17:24:11');
+INSERT INTO `visita` VALUES ('166', '5', '2', '2015-11-02 17:27:31');
+INSERT INTO `visita` VALUES ('167', '11', '2', '2015-11-02 17:27:34');
+INSERT INTO `visita` VALUES ('168', '9', '2', '2015-11-02 22:49:07');
+INSERT INTO `visita` VALUES ('169', '9', '2', '2015-11-02 22:51:39');
+INSERT INTO `visita` VALUES ('170', '10', '2', '2015-11-02 22:51:46');
+INSERT INTO `visita` VALUES ('171', '5', '2', '2015-11-02 22:51:49');
+INSERT INTO `visita` VALUES ('172', '11', '2', '2015-11-02 22:52:05');
+INSERT INTO `visita` VALUES ('173', '5', '2', '2015-11-02 22:52:41');
+INSERT INTO `visita` VALUES ('174', '5', '2', '2015-11-02 22:55:30');
+INSERT INTO `visita` VALUES ('175', '5', '2', '2015-11-02 22:58:10');
+INSERT INTO `visita` VALUES ('176', '5', '2', '2015-11-02 22:58:17');
+INSERT INTO `visita` VALUES ('177', '10', '2', '2015-11-02 23:56:18');

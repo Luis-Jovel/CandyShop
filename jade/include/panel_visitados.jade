@@ -2,13 +2,14 @@ section#vistos-recientes.col-md-2.col-lg-2.col-sm-12.col-xs-12
 	:php
 		if (isset($_SESSION["usuario"])) {
 			$productos = getUltimasVistas($_SESSION["usuario"]["Id"]);
-	h4 Vistos recientemente
+	h4 <?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_vistos_recientemente']:$language['spanish']['label_vistos_recientemente']?>
 	- foreach ($productos as $producto) {
 	.reciente.col-lg-12.col-md-12.col-sm-3.col-xs-3
 		.producto.col-lg-8.col-lg-offset-2.col-md-12
 			a(href='./detalles.php?id=#{$producto[0]}')
 				img(src='./productos/#{$producto[6]}')
-				span!=$producto['nombre']
+				span.
+					<?=((isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN"))?$producto['nombre_EN']:$producto['nombre']?>
 	:php
 		} 
 		}

@@ -31,10 +31,10 @@
 	}
 	function getProductoPorCategoria($idcategoria="%", $nombre_poducto="%"){
 		global $db;
-		$stmt = $db->prepare("SELECT * FROM productos WHERE idcategoria LIKE ? AND nombre LIKE ?");
+		$stmt = $db->prepare("SELECT * FROM productos WHERE idcategoria LIKE ? AND (nombre LIKE ? OR nombre_EN LIKE ?)");
 		$tipo = $idcategoria=="%"?"s":"i";
 		$nombre_poducto = "%".$nombre_poducto."%";
-		$stmt->bind_param($tipo."s",$idcategoria,$nombre_poducto);
+		$stmt->bind_param($tipo."ss",$idcategoria,$nombre_poducto,$nombre_poducto);
 		$rows = array();
 		if ($stmt->execute()) {
 			$result = $stmt->get_result();

@@ -15,7 +15,8 @@
 			"label_iniciar_sesion" => "Iniciar Sesión",
 			//vista detalles
 			"label_precio" => "Precio",
-			"label_añadir_al_carrito_de_compras" => "Añadir al carrito de compras",
+			"label_añadir_al_carrito_de_compras" => "Añadir al carrito",
+			"label_productos_similares" => "Productos similares",
 			//vista carritocompras
 			"label_cantidad" => "Cantidad",
 			"label_eliminar" => "Eliminar",
@@ -33,7 +34,13 @@
 			"label_terminos_y_condiciones" => "Términos y condiciones",
 			"label_contactanos" => "Contáctanos",
 			"label_preguntas_frecuentes" => "Preguntas Frecuentes",
-			"label_todos_los_derechos_reservados" => "Todos los derechos reservados"
+			"label_todos_los_derechos_reservados" => "Todos los derechos reservados",
+			//vista vistos recientemente
+			"label_vistos_recientemente" => "Vistos recientemente",
+			//vista recomendados para ti
+			"label_recomendados_para_ti" => "Recomendados para ti",
+			// otros
+			"label_no_hay_productos_a_mostrar" => "No hay productos a mostrar"
 			),
 		"english" => array(
 			//vista header
@@ -49,6 +56,7 @@
 			//vista detalles
 			"label_precio" => "Price",
 			"label_añadir_al_carrito_de_compras" => "Add to Cart",
+			"label_productos_similares" => "Similar products",
 			//vista carritocompras
 			"label_cantidad" => "Quantity",
 			"label_eliminar" => "Delete",
@@ -56,8 +64,8 @@
 			"label_ver_catalogo" => "Return to Catalog",
 			"label_iniciar_sesion_para_comprar" => "You must login to buy",
 			//vista footer
-			"label_redes_sociales" => "Social Network",
-			"label_newsletter_registrate" => "Regsiter to our newsletter so we can send you news about our products and deals",
+			"label_redes_sociales" => "Social Networks",
+			"label_newsletter_registrate" => "Register to our newsletter so we can send you news about our products and deals",
 			"label_email" => "Email",
 			"label_Enviar" => "Submit",
 			"label_enlaces" => "Links",
@@ -66,7 +74,12 @@
 			"label_terminos_y_condiciones" => "Terms and conditions",
 			"label_contactanos" => "Contact Us",
 			"label_preguntas_frecuentes" => "FAQ",
-			"label_todos_los_derechos_reservados" => "All rights reserved"
+			"label_todos_los_derechos_reservados" => "All rights reserved",
+			//vista vistos recientemente
+			"label_vistos_recientemente" => "Recently viewed",
+			"label_recomendados_para_ti" => "Recommended for you",
+			// otros
+			"label_no_hay_productos_a_mostrar" => "No products found"
 			)
 		);
 ?>

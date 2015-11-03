@@ -13,20 +13,24 @@ section.col-md-6.col-lg-6.col-sm-12.col-xs-12#body
 	|?>
 	.producto.row
 		.col-md-12.col-lg-5.col-sm-6.col-xs-12
-			span.producto-precio=$producto['precio']
+			span.producto-precio.
+				$ <?=$producto['precio']?>
 			a.producto-image-container(href='./detalles.php?id=#{$producto[0]}')
 				img(src='./productos/#{$producto[6]}')
 		.producto-detalles.col-md-12.col-lg-7.col-sm-6.col-xs-12
-			h2.producto-nombre!=$producto['nombre']
-			p.producto-descripcion!=$producto['descripcion']
+			h2.producto-nombre.
+				<?=((isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN"))?$producto['nombre_EN']:$producto['nombre']?>
+			p.producto-descripcion.
+				<?=((isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN"))?$producto['descripcion_EN']:$producto['descripcion']?>
 			p.producto-descripcion-precio.
-				Precio: <?=$producto['precio']?>
+				<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_precio']:$language['spanish']['label_precio']?>: $<?=$producto['precio']?>
 			a.btn.btn-primary(href!='./carritodecompras.php?id=#{$producto[0]}').
-				Añadir al Carrito de Comprass
+				<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_añadir_al_carrito_de_compras']:$language['spanish']['label_añadir_al_carrito_de_compras']?>
 
 	.ProductosRelacionados
 		- include 'include/productosrelacionados.php'
 	- } else {
-	.alert.alert-warning(role='alert') No hay productos a mostrar
+	.alert.alert-warning(role='alert').
+		<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_no_hay_productos_a_mostrar']:$language['spanish']['label_no_hay_productos_a_mostrar']?>
 	- }
 - include 'include/footer.php'

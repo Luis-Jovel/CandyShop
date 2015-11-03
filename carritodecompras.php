@@ -32,10 +32,12 @@
 				$nombre = $i['nombre'];
 				$precio = $i['precio'];
 				$imagen = $i['imagen'];
+				$nombre_ingles = $i['nombre_EN'];
 			}
 
 			$datosNuevos=array('Id' => $_GET['id'],
 							'Nombre' => $nombre,
+							'Nombre_EN' => $nombre_ingles,
 							'Precio' => $precio,
 							'Imagen' => $imagen,
 							'Cantidad' => 1);
@@ -60,10 +62,12 @@
 				$nombre = $i['nombre'];
 				$precio = $i['precio'];
 				$imagen = $i['imagen'];
-			}
+				$nombre_ingles = $i['nombre_EN'];
+			}	
 
 			$arreglo[]=array('Id' => $_GET['id'],
 							'Nombre' => $nombre,
+							'Nombre_EN' => $nombre_ingles,
 							'Precio' => $precio,
 							'Imagen' => $imagen,
 							'Cantidad' => 1);
@@ -89,17 +93,25 @@
 							<span class="producto-precio"><?=$datos[$i]['Precio']?></span>
 							<a href="./detalles.php?id=<?=$datos[$i]['Id']?>">
 								<img class="fixed-height" src="./productos/<?php echo $datos[$i]	['Imagen'];?>"><br>
-								<h2 class='producto-nombre'><?php echo $datos[$i]['Nombre']; ?></h2>
+								<h2 class='producto-nombre'>
+									<?php 
+										if ( isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN"){
+											echo $datos[$i]['Nombre_EN'];			
+										} else {
+											echo $datos[$i]['Nombre'];
+										}
+									?>									
+								</h2>
 							</a>
-							<span>Precio: $<?php echo $datos[$i]['Precio']; ?></span><br>
-							<span>Cantidad: 
+							<span><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_precio']:$language['spanish']['label_']?>: $<?php echo $datos[$i]['Precio']; ?></span><br>
+							<span><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_cantidad']:$language['spanish']['label_cantidad']?>: 
 								<input type="number" value="<?php echo $datos[$i]['Cantidad']; ?>"
 								data-precio="<?php echo $datos[$i]['Precio']; ?>"
 								data-id="<?php echo $datos[$i]['Id']; ?>"
 								class="cantidad">
 							</span><br>
 							<span class="subtotal">SubTotal: $<?php echo $datos[$i]['Precio'] * $datos[$i]['Cantidad']; ?></span><br>
-							<a href="#" class="eliminar" data-id="<?php echo $datos[$i]['Id'] ?>">Eliminar</a>
+							<a href="#" class="eliminar" data-id="<?php echo $datos[$i]['Id'] ?>"><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_eliminar']:$language['spanish']['label_eliminar']?></a>
 						</center>
 					</div>
 				</div>
@@ -109,7 +121,7 @@
 		}
 		else 
 		{
-			echo "<center><h2>El carrito de compras esta vacio.</h2></center>";
+			echo "<center><h2>".((isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?'The shopping cart is empty':'El carrito de compras esta vacio')."</h2></center>";
 		}
 
 		echo '<center><h2 id="total">Total: $' . $total . '</h2></center>';
@@ -140,9 +152,9 @@
 
 				<center> <!-- ya no se usa la etiqueta center -->
 					<?php if (isset($_SESSION["usuario"])){ ?>
-						<input type="submit" value="Comprar" class="aceptar btn btn-primary	" style="width:200px">	
+						<input type="submit" value="<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_comprar']:$language['spanish']['label_comprar'] ?>" class="aceptar btn btn-primary	" style="width:200px">	
 					<?php } else { ?>
-						<a href="<?=$base_url?>/user_login.php" class="btn btn-warning">Iniciar Sesión Para comprar!</a>
+						<a href="<?=$base_url?>/user_login.php" class="btn btn-warning"><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_iniciar_sesion_para_comprar']:$language['spanish']['label_iniciar_sesion_para_comprar']?></a>
 					<?php } ?>
 					
 				</center>
@@ -152,7 +164,7 @@
 		}
 
 		?>
-		<center><a href="./">Ver Catalogo</a></center>
+		<center><a href="./"><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_ver_catalogo']:$language['spanish']['label_ver_catalogo']?></a></center>
 	
 	</section>
 <?php 	include "include/footer.php" ?>
