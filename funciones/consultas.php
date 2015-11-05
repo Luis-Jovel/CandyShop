@@ -38,7 +38,7 @@
 		$rows = array();
 		if ($stmt->execute()) {
 			$result = $stmt->get_result();
-			while ($row = $result->fetch_assoc()) {
+			while ($row = $result->fetch_array()) {
 				array_push($rows, $row);
 			}
 		}
