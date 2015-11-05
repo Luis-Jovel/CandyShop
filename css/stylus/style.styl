@@ -28,6 +28,11 @@ display_inline(v = top)
 	outline none !important
 body
 	background-color fondo !important
+#body
+	h3
+		height 52px
+		text-align center
+		margin-top 11.5px
 header
 	background-color rosado
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -165,6 +170,8 @@ footer
 	float none !important
 #vistos-recientes,#recomendaciones
 	text-align center
+	h4
+		height 52px
 	.reciente
 		line-height 1.4	
 		margin-bottom 20px
@@ -203,3 +210,22 @@ header
 			height auto
 			max-height none
 			width 100%
+// correcciones de estilo para laptop dell inspiron 14
+@media (min-width: 1200px) and (max-width: 1500px)
+	.producto
+		.fixed-height
+			height 140px !important
+		.producto-detalles
+			a.btn.btn-primary
+				font-size 12px
+				margin-left -5px
+				padding 5px 10px
+	#body
+		h3
+			margin-top 11.5px
+			height 52px
+	#vistos-recientes,#recomendaciones
+		.reciente
+			padding 0
+			.producto
+				padding 0

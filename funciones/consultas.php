@@ -96,7 +96,7 @@
 			WHERE
 				ordenada.idusuario=?
 			LIMIT
-				0,5";
+				0,4";
 		$stmt = $db->prepare($query);
 		$stmt->bind_param("i",$idusuario);
 		$rows = array();		
