@@ -103,7 +103,7 @@
 									?>									
 								</h2>
 							</a>
-							<span><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_precio']:$language['spanish']['label_']?>: $<?php echo $datos[$i]['Precio']; ?></span><br>
+							<span><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_precio']:$language['spanish']['label_precio']?>: $<?php echo $datos[$i]['Precio']; ?></span><br>
 							<span><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_cantidad']:$language['spanish']['label_cantidad']?>: 
 								<input type="number" value="<?php echo $datos[$i]['Cantidad']; ?>"
 								data-precio="<?php echo $datos[$i]['Precio']; ?>"

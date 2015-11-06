@@ -4,9 +4,10 @@ section#recomendaciones.col-md-2.col-lg-2.col-md-offset-1.col-lg-offset-1.col-sm
 		$productos = getProductoRecomendados($_SESSION["usuario"]["Id"]);
 	h4.
 		<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_recomendados_para_ti']:$language['spanish']['label_recomendados_para_ti']?>
+	hr
 	- foreach ($productos as $producto) {
 	.reciente.col-lg-12.col-md-12.col-sm-3.col-xs-3
-		.producto.col-lg-8.col-lg-offset-1.col-md-12
+		.producto.col-lg-8.col-lg-offset-2.col-md-12
 			a(href='./detalles.php?id=#{$producto->id}')
 				img(src='./productos/#{$producto->imagen}')
 				span!=$producto->nombre

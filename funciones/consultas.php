@@ -38,7 +38,7 @@
 		$rows = array();
 		if ($stmt->execute()) {
 			$result = $stmt->get_result();
-			while ($row = $result->fetch_assoc()) {
+			while ($row = $result->fetch_array()) {
 				array_push($rows, $row);
 			}
 		}
@@ -96,7 +96,7 @@
 			WHERE
 				ordenada.idusuario=?
 			LIMIT
-				0,5";
+				0,4";
 		$stmt = $db->prepare($query);
 		$stmt->bind_param("i",$idusuario);
 		$rows = array();		
