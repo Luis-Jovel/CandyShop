@@ -14,6 +14,7 @@
 			"label_invitado" => "Invitado",
 			"label_cerrar_sesion" => "Cerrar Sesión",
 			"label_iniciar_sesion" => "Iniciar Sesión",
+			"label_crea_tu_paquete" => "Crea tu paquete",
 			//vista detalles
 			"label_precio" => "Precio",
 			"label_añadir_al_carrito_de_compras" => "Añadir al carrito",
@@ -54,6 +55,7 @@
 			"label_invitado" => "Guest",
 			"label_cerrar_sesion" => "Logout",
 			"label_iniciar_sesion" => "Login",
+			"label_crea_tu_paquete" => "Package Builder",
 			//vista detalles
 			"label_precio" => "Price",
 			"label_añadir_al_carrito_de_compras" => "Add to Cart",

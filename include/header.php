@@ -25,8 +25,32 @@
 	<link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/font-awesome.min.css"/>	
 	<script src="<?=$base_url?>/js/jquery.js"></script>
 	<script src="<?=$base_url?>/js/bootstrap.js"></script>
+	<script src="<?=$base_url?>/js/paquetes.js"></script>
 </head>
 <body>
+
+	<!-- MODAL PARA CREACION DE PAQUETES -->
+
+	<div class="modal fade" id="modal-paquete">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Modal title</h4>
+				</div>
+				<div class="modal-body">
+					<p>One fine body&hellip;</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+<!-- FIN MODAL PARA CREACION DE PAQUETES -->
+
 	<header>
 		<div class="container-fluid">
 			<span id="cambiar_idioma">				
@@ -100,6 +124,9 @@
 								?>
 								</ul>
         					</li>
+        					<li>
+        						<a href="#" id="menu-paquete"><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_crea_tu_paquete']:$language['spanish']['label_crea_tu_paquete']?> <i class="fa fa-birthday-cake"></i></a>
+    						</li>
       				</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<?php
