@@ -26,28 +26,67 @@
 	<script src="<?=$base_url?>/js/jquery.js"></script>
 	<script src="<?=$base_url?>/js/bootstrap.js"></script>
 	<script src="<?=$base_url?>/js/paquetes.js"></script>
+	<script src="<?=$base_url?>/js/ajax.js"></script>
+	<script type="text/javascript">
+		function Paquete(){
+        	var buscar = document.getElementsByName("cmbPaquete")[0].value;
+        	cargarPags('ContainerPackage',buscar,'./compras/TipoPaquete.php');
+      	}
+	</script> 
 </head>
 <body>
 
 	<!-- MODAL PARA CREACION DE PAQUETES -->
-
-	<div class="modal fade" id="modal-paquete">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Modal title</h4>
-				</div>
-				<div class="modal-body">
-					<p>One fine body&hellip;</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
+	<form method="POST" action="./compras/paquetes.php">
+		<div class="modal fade" id="modal-paquete">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Modal title</h4>
+					</div>
+					<div class="modal-body">						
+						Tipo de Paquete:<select name="cmbPaquete" id="cmbPaquete" onchange="Paquete();">							
+							<option value="Infantil">Infantil</option>
+							<option value="Tradicional">Tradicional</option>
+						</select><BR><BR>
+						<div id="ContainerPackage">
+							<table>
+								<tr>
+									<td>Cantidad de Adultos:</td>
+									<td><input type="text" name="adultos" id="adultos" size="4"></td>
+								</tr>
+								<tr>
+									<td>Cantidad de Ni&ntilde;as:</td>
+									<td><input type="text" name="ninias" id="ninias" size="4"></td>
+								</tr>
+								<tr>
+									<td>Cantidad de Ni&ntilde;os:</td>
+									<td><input type="text" name="ninios" id="ninios" size="4"></td>
+								</tr>
+								<tr>
+									<td>Pastel:</td>
+									<td><input type="checkbox" name="pastel" id="pastel" value="1" checked></td>
+								</tr>
+								<tr>
+									<td>Pi&ntilde;ata:</td>
+									<td><input type="checkbox" name="piniata" id="piniata" value="1" checked></td>
+								</tr>
+								<tr>
+									<td>Payaso:</td>
+									<td><input type="checkbox" name="payaso" id="payaso" value="1" checked></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Save changes</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+	</form>
 
 <!-- FIN MODAL PARA CREACION DE PAQUETES -->
 
