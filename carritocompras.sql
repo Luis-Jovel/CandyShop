@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-11-10 00:42:49
+Date: 2015-11-10 01:03:45
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,7 +26,7 @@ CREATE TABLE `categoria` (
   `nombre` varchar(50) DEFAULT NULL,
   `nombre_EN` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idcategoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of categoria
@@ -37,6 +37,7 @@ INSERT INTO `categoria` VALUES ('3', 'Cuberter&iacute;a', 'Cutlery');
 INSERT INTO `categoria` VALUES ('4', 'Pi&ntildeatas', 'Pi&ntildeatas');
 INSERT INTO `categoria` VALUES ('5', 'Dulces', 'Candy');
 INSERT INTO `categoria` VALUES ('6', 'Animadores', 'Party Animators');
+INSERT INTO `categoria` VALUES ('7', 'Bebidas', 'Beverages');
 
 -- ----------------------------
 -- Table structure for compras
@@ -97,7 +98,7 @@ CREATE TABLE `productos` (
   PRIMARY KEY (`id`),
   KEY `fk_producto_categoria` (`idcategoria`),
   CONSTRAINT `fk_producto_categoria` FOREIGN KEY (`idcategoria`) REFERENCES `categoria` (`idcategoria`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- ----------------------------
 -- Records of productos
@@ -123,6 +124,8 @@ INSERT INTO `productos` VALUES ('18', '4', 'Palo para pi&ntilde;ata', 'Pi&ntilde
 INSERT INTO `productos` VALUES ('19', '4', 'Soga para pi&ntilde;ata', 'Pi&ntilde;ata\'s Rope', 'Soga para tu pi&ntilde;ata<br><br>Agrega diversi&oacute;n a tu fiesta.', 'Rope for your pi&ntilde;ata<br><br>Add some fun to your party', 'soga.gif', '2.99');
 INSERT INTO `productos` VALUES ('20', '5', 'Paquete de 25 Bolsitas sorpresa de dulces para ni&ntilde;o', 'Package of 25 Surprise candy bag for boys', 'Bolsita de dulces sorpresa para ni&ntilde;os', 'Surprise candy bag for boys', 'bolsita-masculino.jpg', '7.99');
 INSERT INTO `productos` VALUES ('21', '5', 'Paquete de 25 Bolsitas sorpresa de dulces para ni&ntilde;a', 'Package of 25 Surprise candy bag for girls', 'Bolsita de dulces sorpresa para ni&ntilde;as', 'Surprise candy bag for girls', 'bolsita-femenino.jpg', '7.99');
+INSERT INTO `productos` VALUES ('22', '3', 'Paquete de 25 vasos de pl&aacute;stico', 'Package of 25 plastic cups', 'Paquete con 25 vasos de pl&aacute;stico para servir bebidas en fiestas y celebraciones', 'Package of 25 plastic cups for serving beberages in parties and celebrations', 'vasos.jpg', '3.99');
+INSERT INTO `productos` VALUES ('23', '7', 'Pepsi 3 litros', '3 liter Pepsi', 'Bebida Pepsi de 3 litros para servir en fiestas y celebraciones', '3 liter Pepsi beverage for serving in parties and celebrations', 'pepsi.jpg', '2.5');
 
 -- ----------------------------
 -- Table structure for usuarios
