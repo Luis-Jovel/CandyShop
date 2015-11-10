@@ -15,21 +15,35 @@
 		$Piniata = isset($_POST['piniata']) ? $_POST['piniata'] : "";
 		$Animador = isset($_POST['animador']) ? $_POST['animador'] : "";
 
-		$CantidadTotal = $Adultos + $Ninios + $Ninias;
-		$CantidadTotal = RedondearTotal($CantidadTotal);
+		$CantidadTotal = $Adultos + $Ninios + $Ninias;		
 		
 		if ($Pastel == 1)
-			AgregarCarrito(11, 1, $db);
-		if ($Piniata == 1)
-			AgregarCarrito(6, 1, $db);
-		if ($Animador == 1)
-			AgregarCarrito(15, 1, $db);
+		{
+			AgregarCarrito(11, RedondearTotal($CantidadTotal, 20), $db); // Pastel
+		}
 
-		AgregarCarrito(13, $CantidadTotal, $db); //Cubiertos
-		AgregarCarrito(16, $CantidadTotal, $db); //Platos
+		if ($Piniata == 1)
+		{
+			AgregarCarrito(6, 1, $db);  //Piñata
+			AgregarCarrito(17, 1, $db); //Dulces
+			AgregarCarrito(18, 1, $db); //Palo
+			AgregarCarrito(19, 1, $db); //Lazo
+		}
+
+		if ($Animador == 1)
+		{
+			AgregarCarrito(15, 1, $db); // Animador
+		}
+
+		AgregarCarrito(13, RedondearTotal($CantidadTotal, 25), $db); //Cubiertos
+		AgregarCarrito(16, RedondearTotal($CantidadTotal, 25), $db); //Platos
+		AgregarCarrito(22, RedondearTotal($CantidadTotal, 25), $db); //Vasos
+		AgregarCarrito(23, RedondearTotal($CantidadTotal, 10), $db); //Bebida
 		AgregarCarrito(9, 2, $db); //Dulces
 		AgregarCarrito(3, 2, $db); //Globos
-		AgregarCarrito(8, 2, $db); //Globos
+		AgregarCarrito(8, 2, $db); //Guirnaldas
+		AgregarCarrito(20, RedondearTotal($Ninios, 25), $db); //Bolsitas Niños
+		AgregarCarrito(21, RedondearTotal($Ninias, 25), $db); //Bolsitas Niñas
 
 	}
 	else if ($TipoPaquete == "Tradicional")
@@ -42,23 +56,33 @@
 		$CantidadTotal = RedondearTotal($CantidadTotal);
 		
 		if ($Pastel == 1)
-			AgregarCarrito(10, 1, $db);
+		{
+			AgregarCarrito(10, RedondearTotal($CantidadTotal, 20), $db);
+		}
+
 		if ($Piniata == 1)
-			AgregarCarrito(14, 1, $db);
+		{
+			AgregarCarrito(14, 1, $db); //Piñata
+			AgregarCarrito(17, 1, $db); //Dulces
+			AgregarCarrito(18, 1, $db); //Palo
+			AgregarCarrito(19, 1, $db); //Lazo
+		}
 			
-		AgregarCarrito(4, $CantidadTotal, $db); //Cubiertos
-		AgregarCarrito(16, $CantidadTotal, $db); //Platos
+		AgregarCarrito(4, RedondearTotal($CantidadTotal, 25), $db); //Cubiertos
+		AgregarCarrito(16, RedondearTotal($CantidadTotal, 25), $db); //Platos
+		AgregarCarrito(22, RedondearTotal($CantidadTotal, 25), $db); //Vasos
+		AgregarCarrito(23, RedondearTotal($CantidadTotal, 10), $db); //Bebida
 		AgregarCarrito(1, 2, $db); //Dulces
 		AgregarCarrito(3, 2, $db); //Globos
-		AgregarCarrito(8, 2, $db); //Globos
+		AgregarCarrito(8, 2, $db); //Guirnaldas
 	}
 
 	header("Location: ../carritodecompras.php");
 
-	function RedondearTotal($Cantidad)
+	function RedondearTotal($Asistentes, $Cantidad)
 	{
-		$Cantidad = $Cantidad / 25;		
-		return ceil($Cantidad);
+		$Asistentes = $Asistentes / $Cantidad;
+		return ceil($Asistentes);
 	}
 
 	function AgregarCarrito($Id, $Cantidad, $db)
