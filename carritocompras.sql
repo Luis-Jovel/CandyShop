@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-11-03 00:00:15
+Date: 2015-11-10 00:42:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -97,7 +97,7 @@ CREATE TABLE `productos` (
   PRIMARY KEY (`id`),
   KEY `fk_producto_categoria` (`idcategoria`),
   CONSTRAINT `fk_producto_categoria` FOREIGN KEY (`idcategoria`) REFERENCES `categoria` (`idcategoria`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- ----------------------------
 -- Records of productos
@@ -105,19 +105,24 @@ CREATE TABLE `productos` (
 INSERT INTO `productos` VALUES ('1', '5', 'Bolsa de gomitas azucaradas', 'Sugary Jelly Beans', 'Tan saborsas como coloridas<br>1 bolsa de 0.5 lbs de gomitas azucaradas para fiestas, aniversarios, reuniones, etc.', 'As yummy as colorful <br> 1 bag of 0.5 lbs of jelly beans for parties, anniversaries, reunions, etc.', 'gomitas.jpg', '10.5');
 INSERT INTO `productos` VALUES ('2', '5', 'Paquete dulces cute', 'Cute Candies Package', 'Dulces cute, la mejor forma de expresar lo que sientes es con dulces<br>Paquete 1 lb de dulces cute <br>Sabores: <ul><li>Fresa</li><li>Uva</li><li>Melocot&oacute;n</li><li>Manzana</li></ul>', 'Cute candies, the best way of express your feelings is with candies <br> 1 lb Package of Cute candies <br> Flavours: <ul><li>Strawberry</li><li>Grape</li><li>Watermelon</li><li>Apple</li></ul>', 'cute.png', '5.99');
 INSERT INTO `productos` VALUES ('3', '2', 'Globos 10 pulgadas x50', 'Ballons 10 inch x50', 'Paquete de globos de 10 pulgadas inflados para celebraciones y cumplea&ntilde;os.<br>El paquete contiene 50 unidades', 'Balloons Package of 10 inch when inflated for any kind of celebrations and birthdays. <br> The package contains 50 units', 'globos.jpg', '7.99');
-INSERT INTO `productos` VALUES ('4', '3', 'Utensilios de mesa blancos', 'White Tablewares', 'Utensilios de mesa de plastico color blanco', 'Tablewares color: white', 'curbeteria.jpg', '3.99');
+INSERT INTO `productos` VALUES ('4', '3', 'Paquete de 25 Utensilios de mesa blancos', '25 White Tablewares package', 'Utensilios de mesa de plastico color blanco', 'Tablewares color: white', 'curbeteria.jpg', '3.99');
 INSERT INTO `productos` VALUES ('5', '1', 'Orden de cupcakes', 'Cupckakes Order', 'Orden de cupcakes de chocolate con toping de caramelo, listos para servir <br> Para fiestas, celebraciones, aniversarios, bodas o por degustaci&oacute;n propia', 'Cupcakes Order of chocolate with caramel topping, ready to serve.<br> For parties, celebrations, anniversaries, weddings o just for tasting', 'cupcake.jpg', '9.99');
 INSERT INTO `productos` VALUES ('6', '4', 'Pi&ntilde;ata de minion', 'Minion Piñata', 'Pi&ntilde;ata de minion para celebraciones de fiestas de cumplea&ntilde;os o aniversarios<br>Dimensiones: 0.5 m alto', 'Minion pi&ntilde;ata for celebration parties, bithday parties o arnniversaries. <br> Dimensions: 0.5 m high', 'pinata-minion.jpg', '9.99');
 INSERT INTO `productos` VALUES ('7', '6', 'Animador Titiritero Don\'t Hug Me I\'m Scared', 'Animator Don\'t Hug Me I\'m Scared Puppeter', 'Titiritero con su serie de marionetas Don\'t Hug Me I\'m Scared <br> Ofrece varios actos con los titeres: <br> - Yellow Guy <br> - Red Guy y <br> - Green Guy ', 'Puppeter with the puppets of the series Don\'t Hug Me I\'m Scared <br> Offers varios performances whith the following puppets: <br>  - Yellow Guy <br> - Red Guy y <br> - Green Guy ', 'hugme.jpg', '49.99');
 INSERT INTO `productos` VALUES ('8', '2', 'Guirnaldas Cumplea&ntilde;eras', 'Birthday Garlands', 'Guirnaldas para decoraci&oacute;n en fiestas de cumplea&ntilde;os, paquete surtido con distintas formas y colores', 'Garlands for birthdays celebration, this package containts various colours and shapes of garlands', 'guirnalda.jpg', '4.99');
 INSERT INTO `productos` VALUES ('9', '5', 'M&M Personalizados', 'Custom M&M', 'M&M personalizados para adaptarse a la fiesta o situacion correcta, disponible en rosado y azul', 'Custom M&M available in pink and blue whener the situation demands it', 'm and m.jpg', '2.99');
-INSERT INTO `productos` VALUES ('10', '1', 'Pastel de Cumplea&ntilde;os', 'Birthday cake', 'Pastel de cumplea&ntilde;os de chocolate con cubierta de vainilla tama&ntilde;o mediano<br>Incluye dedicatoria, velas y decoracion', 'Chocolate Birthday cake with a layer of vanilla, medium size.<br>Includes a quote, candles and decoration', 'birthday-cake.jpg', '14.99');
-INSERT INTO `productos` VALUES ('11', '1', 'Pastel de Arcoiris', 'Rainbow Cake', 'Pastel de arcoiris con tantos sabores como colores tiene el arcoiris<br>Perfecto para fiestas de cumplea&ntilde;os y/o aniversarios', 'Rainbow cake with flavors as color has the rainbow<br> Perfect for birthday parties and/or aniversaries', 'rainbow-cake.jpg', '14.99');
+INSERT INTO `productos` VALUES ('10', '1', 'Pastel de Cumplea&ntilde;os 20 piezas', 'Birthday cake 20 pieces', 'Pastel de cumplea&ntilde;os de chocolate con cubierta de vainilla tama&ntilde;o mediano<br>Incluye dedicatoria, velas y decoracion', 'Chocolate Birthday cake with a layer of vanilla, medium size.<br>Includes a quote, candles and decoration', 'birthday-cake.jpg', '14.99');
+INSERT INTO `productos` VALUES ('11', '1', 'Pastel de Arcoiris 20 piezas', 'Rainbow Cake 20 pieces', 'Pastel de arcoiris con tantos sabores como colores tiene el arcoiris<br>Perfecto para fiestas de cumplea&ntilde;os y/o aniversarios', 'Rainbow cake with flavors as color has the rainbow<br> Perfect for birthday parties and/or aniversaries', 'rainbow-cake.jpg', '14.99');
 INSERT INTO `productos` VALUES ('12', '2', 'Florero de origami', 'Origami flower base', 'Florero de oigami para decorar fiestas con o sin tem&aacute;tica<br><br> Se ofrece diferentes tipos de colores y estilos de flores', 'Origami flower base for party decoration with or without theme<br><br>We offer different types of flowers en multiple colors', 'florero.jpg', '4.99');
-INSERT INTO `productos` VALUES ('13', '3', 'Cubiertos decorados', 'Decorated Cutlery', 'Cubiertos de plastico decorados con listones de colores', 'Decorated clutery with coloful ribbons', 'cubierto-decorado.jpg', '3.99');
+INSERT INTO `productos` VALUES ('13', '3', 'Paquete de 25 Cubiertos decorados', '25 Decorated Cutlery package', 'Cubiertos de plastico decorados con listones de colores', 'Decorated clutery with coloful ribbons', 'cubierto-decorado.jpg', '3.99');
 INSERT INTO `productos` VALUES ('14', '4', 'Pi&ntilde;ata para fiestas tradicional', 'Traditional party pi&ntilde;ata', 'Pi&ntilde;ata para fiestas tradicional, no incluye dulces<br>Dimensiones: 0.5 m alto', 'Traditional party pi&ntilde;ata, candies not included<br>Dimensions: 0.5 m tall', 'pinata-fiestas.png', '9.99');
 INSERT INTO `productos` VALUES ('15', '6', 'Animadores pantilla Yo Gabba Gabba', 'Yo Gabba Gabba crew Animators', 'Animadores de la famosa serie de televisi&oacute;n infantil Yo Gabba Gabba', 'Animator form the famous tv show Yo Gabba Gabba', 'yo-gabba.jpg', '49.99');
-INSERT INTO `productos` VALUES ('16', '3', 'Plato de pl&aacute;stico', 'Plastic Plate', 'Plato de pl&aacute;stico para servir durante durante una fiesta, aniversario o celebración<br> tama&ntilde;o Mediano', 'Plastic plate for serving in parties, aniversaries or any celebration<br>Medium Size', 'plato.jpg', '0.3');
+INSERT INTO `productos` VALUES ('16', '3', 'Paquete de 25 Platos de pl&aacute;stico', '25 Plastic Plate package', 'Plato de pl&aacute;stico para servir durante durante una fiesta, aniversario o celebración<br> tama&ntilde;o Mediano', 'Plastic plate for serving in parties, aniversaries or any celebration<br>Medium Size', 'plato.jpg', '3.99');
+INSERT INTO `productos` VALUES ('17', '5', 'Bolsa de 100 dulces para pi&ntilde;ata', '100 pi&ntilde;ata candy bag', 'Porque una pi&ntilde;ata sin dulces no es una pi&ntilde;ata<br>Bolsa de dulces para meter a la pi&ntilde;ata. Contiene 100 unidades', 'Because a pi&ntilde;ata without candy is not a pi&ntilde;ata<br>Bag of pi&ntilde;ata candy with 100 units', 'bolsa-dulces.jpg', '4.99');
+INSERT INTO `productos` VALUES ('18', '4', 'Palo para pi&ntilde;ata', 'Pi&ntilde;ata\'s Stick', 'Palo para golepear a la pi&ntilde;ata, porque la pi&ntilde;ata no se golpeará sola', 'Stick for hit the pi&ntilde;ata, because the pi&ntilde;ata won\'t hit it self', 'palo.gif', '5.99');
+INSERT INTO `productos` VALUES ('19', '4', 'Soga para pi&ntilde;ata', 'Pi&ntilde;ata\'s Rope', 'Soga para tu pi&ntilde;ata<br><br>Agrega diversi&oacute;n a tu fiesta.', 'Rope for your pi&ntilde;ata<br><br>Add some fun to your party', 'soga.gif', '2.99');
+INSERT INTO `productos` VALUES ('20', '5', 'Paquete de 25 Bolsitas sorpresa de dulces para ni&ntilde;o', 'Package of 25 Surprise candy bag for boys', 'Bolsita de dulces sorpresa para ni&ntilde;os', 'Surprise candy bag for boys', 'bolsita-masculino.jpg', '7.99');
+INSERT INTO `productos` VALUES ('21', '5', 'Paquete de 25 Bolsitas sorpresa de dulces para ni&ntilde;a', 'Package of 25 Surprise candy bag for girls', 'Bolsita de dulces sorpresa para ni&ntilde;as', 'Surprise candy bag for girls', 'bolsita-femenino.jpg', '7.99');
 
 -- ----------------------------
 -- Table structure for usuarios
@@ -153,7 +158,7 @@ CREATE TABLE `visita` (
   KEY `idusuario` (`idusuario`),
   CONSTRAINT `visita_ibfk_1` FOREIGN KEY (`idproducto`) REFERENCES `productos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `visita_ibfk_2` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=178 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=208 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of visita
@@ -322,3 +327,33 @@ INSERT INTO `visita` VALUES ('174', '5', '2', '2015-11-02 22:55:30');
 INSERT INTO `visita` VALUES ('175', '5', '2', '2015-11-02 22:58:10');
 INSERT INTO `visita` VALUES ('176', '5', '2', '2015-11-02 22:58:17');
 INSERT INTO `visita` VALUES ('177', '10', '2', '2015-11-02 23:56:18');
+INSERT INTO `visita` VALUES ('178', '12', '2', '2015-11-03 15:37:00');
+INSERT INTO `visita` VALUES ('179', '8', '2', '2015-11-03 15:37:01');
+INSERT INTO `visita` VALUES ('180', '3', '2', '2015-11-03 15:37:04');
+INSERT INTO `visita` VALUES ('181', '12', '2', '2015-11-03 15:37:05');
+INSERT INTO `visita` VALUES ('182', '3', '2', '2015-11-03 15:37:06');
+INSERT INTO `visita` VALUES ('183', '13', '2', '2015-11-03 15:37:08');
+INSERT INTO `visita` VALUES ('184', '16', '2', '2015-11-03 15:37:14');
+INSERT INTO `visita` VALUES ('185', '15', '2', '2015-11-03 16:31:58');
+INSERT INTO `visita` VALUES ('186', '11', '2', '2015-11-03 18:40:08');
+INSERT INTO `visita` VALUES ('187', '5', '2', '2015-11-03 19:04:05');
+INSERT INTO `visita` VALUES ('188', '5', '2', '2015-11-03 19:04:30');
+INSERT INTO `visita` VALUES ('189', '5', '2', '2015-11-03 19:04:48');
+INSERT INTO `visita` VALUES ('190', '5', '2', '2015-11-03 19:04:59');
+INSERT INTO `visita` VALUES ('191', '5', '2', '2015-11-03 19:08:39');
+INSERT INTO `visita` VALUES ('192', '5', '2', '2015-11-03 19:08:45');
+INSERT INTO `visita` VALUES ('193', '5', '2', '2015-11-03 19:08:47');
+INSERT INTO `visita` VALUES ('194', '5', '2', '2015-11-03 19:10:04');
+INSERT INTO `visita` VALUES ('195', '11', '2', '2015-11-03 19:10:05');
+INSERT INTO `visita` VALUES ('196', '5', '2', '2015-11-03 19:10:07');
+INSERT INTO `visita` VALUES ('197', '11', '2', '2015-11-03 19:10:08');
+INSERT INTO `visita` VALUES ('198', '5', '2', '2015-11-03 19:10:13');
+INSERT INTO `visita` VALUES ('199', '5', '2', '2015-11-03 19:14:33');
+INSERT INTO `visita` VALUES ('200', '10', '2', '2015-11-03 19:14:36');
+INSERT INTO `visita` VALUES ('201', '10', '2', '2015-11-03 19:14:37');
+INSERT INTO `visita` VALUES ('202', '5', '2', '2015-11-03 19:14:38');
+INSERT INTO `visita` VALUES ('203', '11', '2', '2015-11-03 19:14:38');
+INSERT INTO `visita` VALUES ('204', '8', '2', '2015-11-03 19:14:43');
+INSERT INTO `visita` VALUES ('205', '10', '2', '2015-11-08 22:24:22');
+INSERT INTO `visita` VALUES ('206', '5', '2', '2015-11-08 22:24:23');
+INSERT INTO `visita` VALUES ('207', '5', '2', '2015-11-08 23:38:43');
