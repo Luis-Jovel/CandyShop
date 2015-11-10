@@ -27,8 +27,8 @@
 					<td><input type="checkbox" name="piniata" id="piniata" value="1" checked></td>
 				</tr>
 				<tr>
-					<td>Payaso:</td>
-					<td><input type="checkbox" name="payaso" id="payaso" value="1" checked></td>
+					<td>Animador:</td>
+					<td><input type="checkbox" name="animador" id="animador" value="1" checked></td>
 				</tr>
 			</table>
 
