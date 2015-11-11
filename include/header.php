@@ -60,19 +60,19 @@
 								<tr>
 									<td>
 										<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_cantidad_de_adultos']:$language['spanish']['label_cantidad_de_adultos']?>:</td>
-									<td><input type="number" name="adultos" id="adultos" size="4"></td>
+									<td><input type="number" required name="adultos" id="adultos" size="4"></td>
 								</tr>
 								<tr>
 									<td>
 										<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_cantidad_de_ninas']:$language['spanish']['label_cantidad_de_ninas']?>:
 									</td>
-									<td><input type="number" name="ninias" id="ninias" size="4"></td>
+									<td><input type="number" required name="ninias" id="ninias" size="4"></td>
 								</tr>
 								<tr>
 									<td>
 										<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_cantidad_de_ninos']:$language['spanish']['label_cantidad_de_ninos']?>:
 									</td>
-									<td><input type="number" name="ninios" id="ninios" size="4"></td>
+									<td><input type="number" required name="ninios" id="ninios" size="4"></td>
 								</tr>
 								<tr>
 									<td>
@@ -96,8 +96,12 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-						<button type="submit" class="btn btn-primary">Aceptar</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_cancelar']:$language['spanish']['label_cancelar']?>
+						</button>
+						<button type="submit" class="btn btn-primary">
+							<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_aceptar']:$language['spanish']['label_aceptar']?>
+						</button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->

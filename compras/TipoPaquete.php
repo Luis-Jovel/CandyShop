@@ -10,19 +10,19 @@
 				<tr>
 					<td>
 						<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_cantidad_de_adultos']:$language['spanish']['label_cantidad_de_adultos']?>:</td>
-					<td><input type="number" name="adultos" id="adultos" size="4"></td>
+					<td><input type="number" required name="adultos" id="adultos" size="4"></td>
 				</tr>
 				<tr>
 					<td>
 						<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_cantidad_de_ninas']:$language['spanish']['label_cantidad_de_ninas']?>:
 					</td>
-					<td><input type="number" name="ninias" id="ninias" size="4"></td>
+					<td><input type="number" required name="ninias" id="ninias" size="4"></td>
 				</tr>
 				<tr>
 					<td>
 						<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_cantidad_de_ninos']:$language['spanish']['label_cantidad_de_ninos']?>:
 					</td>
-					<td><input type="number" name="ninios" id="ninios" size="4"></td>
+					<td><input type="number" required name="ninios" id="ninios" size="4"></td>
 				</tr>
 				<tr>
 					<td>
@@ -55,7 +55,7 @@
 					<td>
 						<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_cantidad_de_personas']:$language['spanish']['label_cantidad_de_personas']?>:
 					</td>
-					<td><input type="number" name="personas" id="personas" size="4"></td>
+					<td><input type="number" required name="personas" id="personas" size="4"></td>
 				</tr>
 				<tr>
 					<td>

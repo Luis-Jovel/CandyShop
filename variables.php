@@ -53,7 +53,10 @@
 			"label_cantidad_de_ninas" => "Cantidad de ni&ntilde;as",
 			"label_pastel" => "Pastel",
 			"label_pinata" => "Pi&ntilde;ata",
-			"label_animador" => "Animador"
+			"label_animador" => "Animador",
+			//botones
+			"label_aceptar" => "Aceptar",
+			"label_cancelar" => "Cancelar"
 			),
 		"english" => array(
 			//vista header
@@ -104,7 +107,10 @@
 			"label_cantidad_de_ninas" => "Number of girls",
 			"label_pastel" => "Add Cake",
 			"label_pinata" => "Add Pi&ntilde;ata",
-			"label_animador" => "Add animator"
+			"label_animador" => "Add animator",
+			//botones
+			"label_aceptar" => "Ok",
+			"label_cancelar" => "Cancel"
 			)
 		);
 ?>
