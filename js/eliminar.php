@@ -9,6 +9,7 @@
 			$datosNuevos[] = array(
 				'Id' => $arreglo[$i]['Id'],
 				'Nombre' => $arreglo[$i]['Nombre'],
+				'Nombre_EN' => $arreglo[$i]['Nombre_EN'],
 				'Precio' => $arreglo[$i]['Precio'],
 				'Imagen' => $arreglo[$i]['Imagen'],
 				'Cantidad' => $arreglo[$i]['Cantidad']
