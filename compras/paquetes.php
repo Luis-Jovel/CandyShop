@@ -53,7 +53,7 @@
 		$Piniata = isset($_POST['piniata']) ? $_POST['piniata'] : "";
 
 		$CantidadTotal = $Personas;
-		$CantidadTotal = RedondearTotal($CantidadTotal);
+		//$CantidadTotal = RedondearTotal($CantidadTotal);
 		
 		if ($Pastel == 1)
 		{

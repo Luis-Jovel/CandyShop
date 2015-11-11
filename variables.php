@@ -42,7 +42,18 @@
 			//vista recomendados para ti
 			"label_recomendados_para_ti" => "Recomendados para ti",
 			// otros
-			"label_no_hay_productos_a_mostrar" => "No hay productos a mostrar"
+			"label_no_hay_productos_a_mostrar" => "No hay productos a mostrar",
+			//creador de paquetes
+			"label_tu_fiesta_es" => "Tu fiesta es: ",
+			"label_infantil" => "Infantil",
+			"label_tradicional" => "Tradicional",
+			"label_cantidad_de_adultos" => "Cantidad de adultos",
+			"label_cantidad_de_personas" => "Cantidad de invitados",
+			"label_cantidad_de_ninos" => "Cantidad de ni&ntilde;os",
+			"label_cantidad_de_ninas" => "Cantidad de ni&ntilde;as",
+			"label_pastel" => "Pastel",
+			"label_pinata" => "Pi&ntilde;ata",
+			"label_animador" => "Animador"
 			),
 		"english" => array(
 			//vista header
@@ -82,7 +93,18 @@
 			"label_vistos_recientemente" => "Recently viewed",
 			"label_recomendados_para_ti" => "Recommended for you",
 			// otros
-			"label_no_hay_productos_a_mostrar" => "No products found"
+			"label_no_hay_productos_a_mostrar" => "No products found",
+			//creador de paquetes
+			"label_tu_fiesta_es" => "Your party is: ",
+			"label_infantil" => "For childs",
+			"label_tradicional" => "Traditional",
+			"label_cantidad_de_adultos" => "Number of adults",
+			"label_cantidad_de_personas" => "Number of guests",
+			"label_cantidad_de_ninos" => "Number of boys",
+			"label_cantidad_de_ninas" => "Number of girls",
+			"label_pastel" => "Add Cake",
+			"label_pinata" => "Add Pi&ntilde;ata",
+			"label_animador" => "Add animator"
 			)
 		);
 ?>

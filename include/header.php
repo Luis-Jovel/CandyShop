@@ -43,37 +43,53 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Paquetes Personalizados</h4>
+						<h4 class="modal-title"><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_crea_tu_paquete']:$language['spanish']['label_crea_tu_paquete']?></h4>
 					</div>
 					<div class="modal-body">						
-						Tipo de Paquete:<select name="cmbPaquete" id="cmbPaquete" onchange="Paquete();">							
-							<option value="Infantil">Infantil</option>
-							<option value="Tradicional">Tradicional</option>
+						<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_tu_fiesta_es']:$language['spanish']['label_tu_fiesta_es']?>
+						<select name="cmbPaquete" id="cmbPaquete" onchange="Paquete();">							
+							<option value="Infantil">
+								<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_infantil']:$language['spanish']['label_infantil']?>
+							</option>
+							<option value="Tradicional">
+								<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_tradicional']:$language['spanish']['label_tradicional']?>
+							</option>
 						</select><BR><BR>
 						<div id="ContainerPackage">
 							<table>
 								<tr>
-									<td>Cantidad de Adultos:</td>
-									<td><input type="text" name="adultos" id="adultos" size="4"></td>
+									<td>
+										<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_cantidad_de_adultos']:$language['spanish']['label_cantidad_de_adultos']?>:</td>
+									<td><input type="number" name="adultos" id="adultos" size="4"></td>
 								</tr>
 								<tr>
-									<td>Cantidad de Ni&ntilde;as:</td>
-									<td><input type="text" name="ninias" id="ninias" size="4"></td>
+									<td>
+										<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_cantidad_de_ninas']:$language['spanish']['label_cantidad_de_ninas']?>:
+									</td>
+									<td><input type="number" name="ninias" id="ninias" size="4"></td>
 								</tr>
 								<tr>
-									<td>Cantidad de Ni&ntilde;os:</td>
-									<td><input type="text" name="ninios" id="ninios" size="4"></td>
+									<td>
+										<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_cantidad_de_ninos']:$language['spanish']['label_cantidad_de_ninos']?>:
+									</td>
+									<td><input type="number" name="ninios" id="ninios" size="4"></td>
 								</tr>
 								<tr>
-									<td>Pastel:</td>
+									<td>
+										<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_pastel']:$language['spanish']['label_pastel']?>:
+									</td>
 									<td><input type="checkbox" name="pastel" id="pastel" value="1" checked></td>
 								</tr>
 								<tr>
-									<td>Pi&ntilde;ata:</td>
+									<td>
+										<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_pinata']:$language['spanish']['label_pinata']?>:
+									</td>
 									<td><input type="checkbox" name="piniata" id="piniata" value="1" checked></td>
 								</tr>
 								<tr>
-									<td>Animador:</td>
+									<td>
+										<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_animador']:$language['spanish']['label_animador']?>:
+									</td>
 									<td><input type="checkbox" name="animador" id="animador" value="1" checked></td>
 								</tr>
 							</table>

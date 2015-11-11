@@ -156,7 +156,7 @@
 					<?php } else { ?>
 						<a href="<?=$base_url?>/user_login.php" class="btn btn-warning"><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_iniciar_sesion_para_comprar']:$language['spanish']['label_iniciar_sesion_para_comprar']?></a>
 					<?php } ?>
-					
+					<?=isset($_SESSION['carrito'])?'<a href="'.$base_url.'/unset_carrito.php" class="btn btn-danger">Vaciar el carrito <i class="fa fa-trash-o"></i></a>':""?>
 				</center>
 			</form>
 
