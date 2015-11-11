@@ -156,7 +156,12 @@
 					<?php } else { ?>
 						<a href="<?=$base_url?>/user_login.php" class="btn btn-warning"><?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_iniciar_sesion_para_comprar']:$language['spanish']['label_iniciar_sesion_para_comprar']?></a>
 					<?php } ?>
-					<?=isset($_SESSION['carrito'])?'<a href="'.$base_url.'/unset_carrito.php" class="btn btn-danger">Vaciar el carrito <i class="fa fa-trash-o"></i></a>':""?>
+					<?php if (isset($_SESSION['carrito'])) {?>
+						<a href="<?=$base_url?>/unset_carrito.php" class="btn btn-danger">
+							<?=(isset($_SESSION['idioma']) && $_SESSION['idioma']=="EN")?$language['english']['label_vaciar_carrito']:$language['spanish']['label_vaciar_carrito']?>
+							<i class="fa fa-trash-o"></i>
+						</a>
+					<?php } ?>
 				</center>
 			</form>
 

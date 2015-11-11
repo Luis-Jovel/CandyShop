@@ -25,6 +25,7 @@
 			"label_comprar" => "Comprar",
 			"label_ver_catalogo" => "Ver Catálogo",
 			"label_iniciar_sesion_para_comprar" => "Iniciar Sesión Para comprar",
+			"label_vaciar_carrito" => "Vaciar Carrito",
 			//vista footer
 			"label_redes_sociales" => "Redes Sociales",
 			"label_newsletter_registrate" => "Registrate en nuesta newletter te enviaremos novedades sobre nuestros productos y ofertas",
@@ -80,6 +81,7 @@
 			"label_comprar" => "Proceed to checkout",
 			"label_ver_catalogo" => "Return to Catalog",
 			"label_iniciar_sesion_para_comprar" => "You must login to buy",
+			"label_vaciar_carrito" => "Empty Cart",
 			//vista footer
 			"label_redes_sociales" => "Social Networks",
 			"label_newsletter_registrate" => "Register to our newsletter so we can send you news about our products and deals",
